@@ -1,1 +1,0 @@
-<?php $this->extend('themes/frontend/header'); ?>
