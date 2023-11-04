@@ -32,7 +32,7 @@
     <link href="css/animate.css" rel="stylesheet">
 
     <!-- TEMPLATE CSS -->
-    <link href="css/blue-theme.css" rel="stylesheet">
+    <link href="css/pink-theme.css" rel="stylesheet">
 
     <!-- RESPONSIVE CSS -->
     <link href="css/responsive.css" rel="stylesheet">
@@ -68,7 +68,7 @@
                                 <div class="register-page-txt color--white">
 
                                     <!-- Logo -->
-                                    <img class="img-fluid" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="logo-image">
+<!--                                    <img class="img-fluid" src="--><?php //_ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?><!--" alt="logo-image">-->
 
                                     <!-- Title -->
                                     <h2 class="s-42 w-700"><?php _e("Fast, Efficient and Productive")?></h2>

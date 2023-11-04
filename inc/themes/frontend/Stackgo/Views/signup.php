@@ -1,8 +1,8 @@
-<div class="row justify-content-center">
-	<div class="col-xl-7 col-lg-10">
-		<nav class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between">
-      		<a class="navbar-brand" href="<?php _ec( base_url() )?>"><img class="logo auth" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="logo"></a>
-        </nav>
+<div class=" register-page-form">
+	<div class="">
+        <div class="mb-3 mt-3 d-flex" style="justify-content: center">
+            <a href="<?php _ec( base_url() )?>"><img class="img-fluid" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="logo-image"></a>
+        </div>
         <form class="actionForm" action="<?php _ec( base_url("auth/signup") )?>" data-redirect="<?php _ec( base_url("login") )?>" method="POST">
 			<div class="row">
 				<div class="section-title m-0">
@@ -11,7 +11,7 @@
 					<p class=""><?php _e("Let's get your account set up")?></p>
 				</div>
 			  	<div class="form-group col-md-12">
-			    	<input type="text" class="form-control" name="fullname" placeholder="<?php _e("Fullname")?>" value="<?php _ec( post("fullname") )?>">
+			    	<input type="text" class="form-control email" name="fullname" placeholder="<?php _e("Fullname")?>" value="<?php _ec( post("fullname") )?>">
 			    	<span class="focus-border"></span>
 			  	</div>
 			  	<div class="form-group col-md-12">
@@ -48,11 +48,11 @@
 				<?php }?>
 			  	<div class="show-message mb-2"></div>
 			  	<div class="col-md-12">
-			    	<button type="submit" class="btn btn-primary w-100 mb-3"><?php _e("Sign up")?></button>
+			    	<button type="submit" class="btn btn--theme hover--theme submit mb-3"><?php _e("Sign up")?></button>
 			  	</div>
 			  	<div class="col-md-12">
 			    	<hr>
-			    	<p class="mb-0"><?php _e("Already have an account?")?> <a href="<?php _ec( base_url("login") )?>"> <?php _e("Login")?></a></p>
+			    	<p class="create-account text-center"><?php _e("Already have an account?")?> <a class="color--theme" href="<?php _ec( base_url("login") )?>"> <?php _e("Login")?></a></p>
 			  	</div>
 			</div>
 		</form>

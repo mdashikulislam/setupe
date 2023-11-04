@@ -1,8 +1,8 @@
-<div class="row justify-content-center">
-    <div class="col-xl-7 col-lg-10">
-        <nav class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between">
-            <a class="navbar-brand" href="<?php _ec( base_url() )?>"><img class="auth logo" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="logo"></a>
-        </nav>
+<div class="register-page-form">
+    <div class="">
+        <div class="mb-3 mt-3 d-flex" style="justify-content: center">
+            <a href="<?php _ec( base_url() )?>"><img class="img-fluid" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="logo-image"></a>
+        </div>
         <form class="actionForm" action="<?php _ec( base_url("auth/forgot_password") )?>" method="POST">
             <div class="row">
                 <div class="section-title m-0">
@@ -18,7 +18,7 @@
                 <?php }?>
                 <div class="show-message mb-2"></div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary w-100 mb-3"><?php _e("Submit")?></button>
+                    <button type="submit" class="btn btn--theme hover--theme submit mb-3"><?php _e("Submit")?></button>
                 </div>
             </div>
         </form>
