@@ -108,12 +108,14 @@
                             <?php if (find_modules("blog_manager")): ?>
                             <li class="nl-simple" aria-haspopup="true"><a href="<?php _ec( base_url("blogs") )?>" class="h-link"><?php _e("Blogs")?></a></li>
                             <?php endif ?>
+                            <?php if ( get_option("signup_status", 1) ): ?>
                             <li class="nl-simple reg-fst-link mobile-last-link" aria-haspopup="true">
-                                <a href="login-2.html" class="h-link">Sign in</a>
+                                <a href="<?php _ec( base_url("login") )?>" class="h-link"><?php _e("Login")?></a>
                             </li>
                             <li class="nl-simple" aria-haspopup="true">
-                                <a href="signup-2.html" class="btn r-04 btn--theme hover--tra-black last-link">Sign up</a>
+                                <a href="<?php _ec( base_url("signup") )?>" class="btn r-04 btn--theme hover--tra-black last-link"><?php _e("Sign up")?></a>
                             </li>
+                            <?php endif ?>
                         </ul>
                     </nav>    <!-- END MAIN MENU -->
 
