@@ -16,7 +16,7 @@ class LinkedIn
     {
         $this->app_id = $app_id;
         $this->app_secret = $app_secret;
-        $this->scopes =  $scopes;
+        $this->scopes =$scopes;
         $this->csrf = random_int(111111,99999999999);
         $this->callback = $callback;
         $this->ssl = $ssl;
@@ -25,8 +25,9 @@ class LinkedIn
 
     public function getAuthUrl()
     {
+        
         $_SESSION['linkedincsrf']  = $this->csrf;
-        return "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=". $this->app_id . "&redirect_uri=".$this->callback ."&state=". $this->csrf."&scope=". $this->scopes ;
+        return "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=".$this->app_id."&state=".$this->csrf."&scope=".$this->scopes."&redirect_uri=".$this->callback;
     }
 
     public function getAccessToken($code)
@@ -36,7 +37,7 @@ class LinkedIn
             'client_id' => $this->app_id,
             'client_secret' => $this->app_secret,
             'redirect_uri' => $this->callback,
-            'code' => $code,
+            'code'=> $code,
             'grant_type' => 'authorization_code',
         ];
         $response = $this->curl($url,http_build_query($params), "application/x-www-form-urlencoded");

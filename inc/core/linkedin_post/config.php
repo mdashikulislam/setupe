@@ -1,24 +1,15 @@
 <?php
 return [
     'id' => 'linkedin_post',
-    'name' => 'Linkedin Post',
-    'author' => 'Stackcode',
-    'author_uri' => 'https://stackposts.com',
-    'version' => '1.0',
-    'desc' => '',
+    'folder' => 'core',
+    'name' => 'Linkedin',
+    'author' => 'ocmws',
+    'author_uri' => 'https://ocmws.com',
+    'desc' => 'ocmws - Social Media Management & Analysis Platform',
     'icon' => 'fab fa-linkedin',
     'color' => '#0d77b7',
-    'menu' => [
-        'tab' => 2,
-        'position' => 970,
-        'name' => 'Linkedin',
-        'sub_menu' => [
-        	'position' => 1000,
-            'id' => 'linkedin_post',
-            'name' => 'Post'
-        ]
-    ],
-    'css' => [
-		'assets/css/linkedin_post.css'
-	]
+    'parent' => [
+        "id" => "linkedin",
+        "name" => "Linkedin"
+    ]
 ];

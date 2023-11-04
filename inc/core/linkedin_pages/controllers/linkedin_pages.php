@@ -1,229 +1,202 @@
 <?php
+namespace Core\Linkedin_pages\Controllers;
 use myPHPnotes\LinkedIn;
 
-class linkedin_pages extends MY_Controller {
-    
-    public $tb_account_manager = "sp_account_manager";
-    public $module_name;
-
+class Linkedin_pages extends \CodeIgniter\Controller
+{
     public function __construct(){
-        parent::__construct();
-        _permission("account_manager_enable");
-        $this->load->model(get_class($this).'_model', 'model');
-        include get_module_path($this, 'libraries/vendor/autoload.php', true);
-        include get_module_path($this, 'libraries/LinkedIn.php', true);
-
-        //
-        $this->module_name = get_module_config( $this, 'name' );
-        $this->module_icon = get_module_config( $this, 'icon' );
-        $this->module_color = get_module_config( $this, 'color' );
-        //
+        $reflect = new \ReflectionClass(get_called_class());
+        $this->module = strtolower( $reflect->getShortName() );
+        $this->config = include realpath( __DIR__."/../Config.php" );
+        include get_module_dir( __DIR__ , 'Libraries/LinkedIn.php');
         $app_id = get_option('linkedin_api_key', '');
         $app_secret = get_option('linkedin_api_secret', '');
-        $app_callback = get_url( get_class($this) );
-        $app_scopes = "r_emailaddress r_basicprofile r_liteprofile w_member_social w_organization_social r_organization_social rw_organization_admin";
+        $app_callback = get_module_url();
+        $app_scopes = "email r_basicprofile profile w_member_social w_organization_social r_organization_social rw_organization_admin";
         $ssl = false;
 
         if($app_id == "" || $app_secret == ""){
-            redirect( get_url("social_network_configuration/index/linkedin") );
+            redirect_to( base_url("social_network_settings/index/".$this->config['parent']['id']) ); 
         }
 
         $this->linkedin = new LinkedIn($app_id, $app_secret, $app_callback, $app_scopes, $ssl);
     }
+    
+    public function index() {
 
-    public function index($page = "", $ids = "")
-    {
-        //
-        if(!_s("linkedin_access_token")){
-            if( !post("error_description") ){
+        try {
+            if(!get_session("Linkedin_AccessToken")){
                 $response = $this->linkedin->getAccessToken( post('code') );
                 if ( $response['status'] == "success" ) {
-                    $access_token = $response['accessToken'];
-                    _ss("linkedin_access_token", $response['accessToken']);
+                    $accessToken = $response['accessToken'];
+                    set_session(["Linkedin_AccessToken" => $response['accessToken']]);
                 }else{
-                    $data = $response;
-                    $access_token = false;
+                    $accessToken = false;
                 }
             }else{
-                $access_token = false;
-                $data = [
-                    "status" => "error",
-                    "message" => post("error_description")
-                ];
+                $accessToken = get_session("Linkedin_AccessToken");
             }
-        }else{
-            $access_token = _s("linkedin_access_token");
-        }
 
-        if($access_token){
-            $result = [];
-            $profiles = $this->linkedin->getCompanyPages($access_token);
-            $this->linkedin->getPerson($access_token);
-            _ss("linkedin_company_pages", serialize($profiles));
-            if(isset($profiles->elements)){
+            if($accessToken){
+                $response = $this->linkedin->getCompanyPages($accessToken);
 
-                $profiles = $profiles->elements;
+                if(isset($response->elements)){
 
-                if($profiles)
-                {
-                    foreach ($profiles as $profile) {
-                        $profile = (array)$profile;
-                        $profile = $profile['organizationalTarget~'];
-                        $avatar = (array)$profile->logoV2;
+                    foreach ($response->elements as $row) {
+                        $row = (array)$row;
+                        $row = $row['organizationalTarget~'];
+                        $avatar = (array)$row->logoV2;
                         $avatar = $avatar['original~'];
                         $avatar = $avatar->elements[0]->identifiers[0]->identifier;
 
                         $result[] = (object)[
-                            'id' => $profile->id,
-                            'name' => $profile->localizedName,
+                            'id' => $row->id,
+                            'name' => $row->localizedName,
                             'avatar' => $avatar,
-                            'desc' => $profile->vanityName
+                            'desc' => $row->vanityName
                         ];
                     }
 
-                    $data = [
+                    $profiles = [
                         "status" => "success",
+                        "config" => $this->config,
                         "result" => $result
                     ];
+
                 }else{
-                    $data = [
+                    $profiles = [
                         "status" => "error",
+                        "config" => $this->config,
                         "message" => __('No profile to add')
                     ];
                 }
-
             }else{
-                $data = [
+                $profiles = [
                     "status" => "error",
-                    "message" => $profiles->message
+                    "config" => $this->config,
+                    "message" => __('No profile to add')
                 ];
             }
+        } catch (\Exception $e) {
+            $profiles = [
+                "status" => "error",
+                "config" => $this->config,
+                "message" => $e->getMessage()
+            ];
         }
 
-        $data['module_name'] = $this->module_name;
-        $data['module_icon'] = $this->module_icon;
-        $data['module_color'] = $this->module_color;
-
-        $views = [
-            "subheader" => view( 'main/subheader', [ 'module_name' => $this->module_name, 'module_icon' => $this->module_icon, 'module_color' => $this->module_color ], true ),
-            "column_one" => page($this, "pages", "general", $page, $data), 
+        $data = [
+            "title" => $this->config['name'],
+            "desc" => $this->config['desc'],
+            "content" => view('Core\Linkedin_pages\Views\add', $profiles)
         ];
-        
-        views( [
-            "title" => $this->module_name,
-            "fragment" => "fragment_one",
-            "views" => $views
-        ] );
+
+        return view('Core\Linkedin_pages\Views\index', $data);
     }
 
-    public function oauth()
-    {
-        _us("linkedin_access_token");
-        redirect($this->linkedin->getAuthUrl());
+    public function oauth(){
+        remove_session(['Linkedin_AccessToken']);
+        redirect_to($this->linkedin->getAuthUrl());
     }
 
     public function save()
     {
         $ids = post('id');
-        $team_id = _t("id");
+        $team_id = get_team("id");
+        $accessToken = get_session('Linkedin_AccessToken');
 
         validate('empty', __('Please select a profile to add'), $ids);
 
-        $access_token = _s("linkedin_access_token");
-        $profiles = _s("linkedin_company_pages");
-        $profiles = unserialize($profiles);
-        $userinfo = $this->linkedin->getPerson($access_token);
+        $response = $this->linkedin->getCompanyPages($accessToken);
+        $profile = $this->linkedin->getPerson($accessToken);
 
-        if(!isset($profiles->elements)){
+        if( isset($response->status) ){
             ms([
                 "status" => "error",
-                "message" => $profiles->message
+                "message" => __( $response->message )
             ]);
         }
 
-        $profiles = $profiles->elements;
+        if(!is_string($response)){
 
-        if($profiles)
-        {
-            foreach ($profiles as $profile){
-                $profile = (array)$profile;
-                $profile = $profile['organizationalTarget~'];
+            if(isset($response->elements)){
 
-                if(in_array($profile->id, $ids)){
+                foreach ($response->elements as $row) {
+                    $row = (array)$row;
+                    $row = $row['organizationalTarget~'];
+                    if(in_array($row->id, $ids)){
+                        $item = db_get('*', TB_ACCOUNTS, "social_network = 'linkedin' AND team_id = '{$team_id}' AND pid = '".$row->id."'");
+                        if(!$item){
+                            //Check limit number 
+                            check_number_account("linkedin", "page");
+                            $avatar = (array)$row->logoV2;
+                            $avatar = $avatar['original~'];
+                            $avatar = $avatar->elements[0]->identifiers[0]->identifier;
+                            $avatar = save_img( $avatar, WRITEPATH.'avatar/' );
+                            $data = [
+                                'ids' => ids(),
+                                'module' => $this->module,
+                                'social_network' => 'linkedin',
+                                'category' => 'page',
+                                'login_type' => 1,
+                                'can_post' => 1,
+                                'team_id' => $team_id,
+                                'pid' => $row->id,
+                                'name' => $row->localizedName,
+                                'username' => $row->vanityName,
+                                'token' => $accessToken,
+                                'avatar' => $avatar,
+                                'url' => 'https://linkedin.com/company/'.$row->id,
+                                'tmp' => $profile->id,
+                                'data' => NULL,
+                                'status' => 1,
+                                'changed' => time(),
+                                'created' => time()
+                            ];
 
-                    $avatar = (array)$profile->logoV2;
-                    $avatar = $avatar['original~'];
-                    $avatar = $avatar->elements[0]->identifiers[0]->identifier;
-                    $avatar = save_img( $avatar, TMP_PATH.'avatar/' );
-                    $item = $this->model->get('*', $this->tb_account_manager, "social_network = 'linkedin' AND team_id = '{$team_id}' AND pid = '{$profile->id}'");
+                            db_insert(TB_ACCOUNTS, $data);
+                        }else{
+                            unlink( get_file_path($item->avatar) );
+                            $avatar = (array)$row->logoV2;
+                            $avatar = $avatar['original~'];
+                            $avatar = $avatar->elements[0]->identifiers[0]->identifier;
+                            $avatar = save_img( $avatar, WRITEPATH.'avatar/' );
+                            $data = [
+                                'can_post' => 1,
+                                'pid' => $row->id,
+                                'name' => $row->localizedName,
+                                'username' => $row->vanityName,
+                                'token' => $accessToken,
+                                'avatar' => $avatar,
+                                'url' => 'https://linkedin.com/company/'.$row->id,
+                                'tmp' => $profile->id,
+                                'status' => 1,
+                                'changed' => time(),
+                            ];
 
-                    if(!$item){
-                        $data = [
-                            'ids' => ids(),
-                            'social_network' => 'linkedin',
-                            'category' => 'page',
-                            'login_type' => 1,
-                            'can_post' => 1,
-                            'team_id' => $team_id,
-                            'pid' => $profile->id,
-                            'name' => $profile->localizedName,
-                            'username' => $profile->vanityName,
-                            'token' => $access_token,
-                            'avatar' => $avatar,
-                            'url' => 'https://linkedin.com/company/'.$profile->id,
-                            'data' => NULL,
-                            'proxy' => $userinfo->id,
-                            'status' => 1,
-                            'changed' => now(),
-                            'created' => now()
-                        ];
+                            db_update(TB_ACCOUNTS, $data, ['id' => $item->id]);
+                        }
 
-                        check_number_account("linkedin", "page");
-
-                        $this->model->insert($this->tb_account_manager, $data);
-                    }else{
-                        @unlink($item->avatar);
-
-                        $data = [
-                            'social_network' => 'linkedin',
-                            'category' => 'page',
-                            'login_type' => 1,
-                            'can_post' => 1,
-                            'team_id' => $team_id,
-                            'pid' => $profile->id,
-                            'name' => $profile->localizedName,
-                            'username' => $profile->vanityName,
-                            'token' => $access_token,
-                            'avatar' => $avatar,
-                            'url' => 'https://linkedin.com/company/'.$profile->id,
-                            'proxy' => $userinfo->id,
-                            'status' => 1,
-                            'changed' => now(),
-                        ];
-
-                        $this->model->update($this->tb_account_manager, $data, ['id' => $item->id]);
                     }
                 }
 
-            }
+                db_update(TB_ACCOUNTS, ["token" => $accessToken], ["tmp" => $profile->id]);
 
-            $items = $this->model->fetch('*', $this->tb_account_manager, "social_network = 'linkedin' AND team_id = '{$team_id}' AND proxy = '{$userinfo->id}'");
-            if(!empty($items)){
-                foreach ($items as $key => $value) {
-                    $this->model->update($this->tb_account_manager, ["token" => $access_token], ['id' => $value->id]);
-                }
-            }
+                ms([
+                    "status" => "success",
+                    "message" => __("Success")
+                ]);
 
-            _us('linkedin_access_token');
-            _us("linkedin_company_pages");
-            ms([
-                "status" => "success",
-                "message" => __("Success")
-            ]);
+            }else{
+                ms([
+                    "status" => "error",
+                    "message" => __('No profile to add')
+                ]);
+            }
         }else{
             ms([
                 "status" => "error",
-                "message" => __('No profile to add')
+                "message" => $response
             ]);
         }
     }
