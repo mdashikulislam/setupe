@@ -5,6 +5,8 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule . index.php [L,QSA]
 
+
+
 # Performace optimization
 # BEGIN Compress text files
 <ifModule mod_deflate.c>
@@ -30,6 +32,7 @@ RewriteRule . index.php [L,QSA]
   ExpiresByType text/javascript "access plus 31536000 seconds"
   ExpiresByType application/javascript "access plus 31536000 seconds"
   ExpiresByType application/x-javascript "access plus 31536000 seconds"
+
 </ifModule>
 # END Expire headers
 
