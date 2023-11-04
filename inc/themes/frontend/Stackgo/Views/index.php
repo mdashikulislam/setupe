@@ -11,42 +11,42 @@
 
     <!-- FAVICON AND TOUCH ICONS -->
     <link rel="shortcut icon" href="<?php _ec( get_option("website_favicon", base_url("assets/img/favicon.svg")) )?>" />
-
+    <base href="<?php _ec( get_frontend_url() )?>Assets">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
     <!-- BOOTSTRAP CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- FONT ICONS -->
-    <link href="css/flaticon.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/flaticon.css" rel="stylesheet">
 
     <!-- PLUGINS STYLESHEET -->
-    <link href="css/menu.css" rel="stylesheet">
-    <link id="effect" href="css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
-    <link href="css/owl.theme.default.min.css" rel="stylesheet">
-    <link href="css/lunar.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/menu.css" rel="stylesheet">
+    <link id="effect" href="<?php _ec( get_frontend_url() )?>Assets/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/lunar.css" rel="stylesheet">
 
     <!-- ON SCROLL ANIMATION -->
-    <link href="css/animate.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/animate.css" rel="stylesheet">
 
     <!-- TEMPLATE CSS -->
     <!-- <link href="css/blue-theme.css" rel="stylesheet"> -->
     <!-- <link href="css/crocus-theme.css" rel="stylesheet"> -->
     <!-- <link href="css/green-theme.css" rel="stylesheet"> -->
     <!-- <link href="css/magenta-theme.css" rel="stylesheet"> -->
-    <link href="css/pink-theme.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/pink-theme.css" rel="stylesheet">
     <!-- <link href="css/purple-theme.css" rel="stylesheet"> -->
     <!-- <link href="css/skyblue-theme.css" rel="stylesheet"> -->
     <!-- <link href="css/red-theme.css" rel="stylesheet"> -->
     <!-- <link href="css/violet-theme.css" rel="stylesheet"> -->
 
     <!-- RESPONSIVE CSS -->
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="<?php _ec( get_frontend_url() )?>Assets/css/responsive.css" rel="stylesheet">
     <script type="text/javascript">
         var PATH  = '<?php _ec( base_url()."/" )?>';
         var csrf = "<?php _ec( csrf_hash() ) ?>";
@@ -2483,40 +2483,24 @@
 
 <!-- EXTERNAL SCRIPTS
 ============================================= -->
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.custom.js"></script>
-<script src="js/jquery.easing.js"></script>
-<script src="js/jquery.appear.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/pricing-toggle.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/request-form.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/lunar.js"></script>
-<script src="js/wow.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/jquery-3.7.0.min.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/bootstrap.min.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/modernizr.custom.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/jquery.easing.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/jquery.appear.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/menu.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/owl.carousel.min.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/pricing-toggle.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/jquery.magnific-popup.min.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/request-form.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/jquery.validate.min.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/popper.min.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/lunar.js"></script>
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/wow.js"></script>
 
 <!-- Custom Script -->
-<script src="js/custom.js"></script>
-
-
-<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->
-<!--
-<script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-XXXXX-X']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-</script>
--->
+<script src="<?php _ec( get_frontend_url() )?>Assets/js/custom.js"></script>
 
 
 </body>
