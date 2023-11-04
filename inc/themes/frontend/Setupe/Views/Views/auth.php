@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-lg-6 col-xl-6 overflow-hidden position-relative d-lg-block d-none" style="background-image: url(<?php _ec( get_frontend_url() )?>Assets/images/signup.jpg); background-size: cover;">
                     <div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 h-100 align-items-center justify-content-center">
-                        <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7"> 
+                        <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">
                             <?php _e("Fast, Efficient and Productive")?>
                         </h1>
                         <div class="d-none d-lg-block text-white fs-base text-center">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
