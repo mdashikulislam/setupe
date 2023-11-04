@@ -253,6 +253,78 @@
 
 
 
+<section id="features-2" class="py-100 features-section division">
+    <div class="container">
+        <!-- SECTION TITLE -->
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-9">
+                <div class="section-title mb-70">
+                    <h6 class="sub-title "><?php _e("Why Choose Us")?></h6>
+                    <!-- Title -->
+
+                    <h2 class="s-50 w-700"><?php _e("A complete solution for your social marketing & save your time")?></h2>
+                    <p class="s-21 color--grey"><?php _e("With an intuitive interface and a lot of extra features to help you create articles that are interesting and easier.")?></p>
+                    <!-- Text -->
+                </div>
+            </div>
+        </div>
+        <!-- FEATURES-2 WRAPPER -->
+        <div class="fbox-wrapper text-center">
+            <div class="row row-cols-1 row-cols-md-3">
+                <div class="col">
+                    <div class="fbox-2 fb-1 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                        <!-- Image -->
+                        <div class="fbox-img gr--whitesmoke h-175">
+                            <img class="img-fluid" src="<?php _ec( get_frontend_url() )?>Assets/images/whychoose01.png" alt="feature-image">
+                        </div>
+                        <!-- Text -->
+                        <div class="fbox-txt">
+                            <h6 class="s-22 w-700"><?php _e("File manager")?></h6>
+                            <p><?php _e("Fully integrated with the best image uploading and editing current files")?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="fbox-2 fb-1 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                        <!-- Image -->
+                        <div class="fbox-img gr--whitesmoke h-175">
+                            <img class="img-fluid" src="<?php _ec( get_frontend_url() )?>Assets/images/whychoose02.png" alt="feature-image">
+                        </div>
+                        <!-- Text -->
+                        <div class="fbox-txt">
+                            <h6 class="s-22 w-700"><?php _e("Watermark")?></h6>
+                            <p><?php _e("Easily add watermark to your images with intuitive interface")?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="fbox-2 fb-1 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                        <!-- Image -->
+                        <div class="fbox-img gr--whitesmoke h-175">
+                            <img class="img-fluid" src="<?php _ec( get_frontend_url() )?>Assets/images/whychoose03.png" alt="feature-image">
+                        </div>
+                        <!-- Text -->
+                        <div class="fbox-txt">
+                            <h6 class="s-22 w-700"><?php _e("Group manager")?></h6>
+                            <p><?php _e("Managing all of your accounts in groups saves you time.")?></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>  <!-- End row -->
+            <div class="row">
+                <div class="col-12 text-center mt-md-5">
+                    <a href="<?php _ec( base_url("features") )?>" class="btn r-04 btn--theme hover--theme"><?php _e("View Other Features")?><i class="fa fa-angle-right ps-3"></i></a>
+                    <p class="mt-2 small"><?php _e("Contact us to discuss the goals for your brand")?></p>
+                </div>
+            </div>
+        </div>	<!-- END FEATURES-2 WRAPPER -->
+
+
+    </div>     <!-- End container -->
+</section>
+
+
 <!-- TESTIMONIALS-1
 			============================================= -->
 <section id="reviews-1" class="pt-100 shape--06 shape--gr-whitesmoke reviews-section">
@@ -411,7 +483,7 @@
                         </div>	<!-- End Text -->
 
                     </div>	<!-- END TESTIMONIAL #4 -->
-                    
+
                 </div>
             </div>
         </div>	<!-- END TESTIMONIALS CONTENT -->

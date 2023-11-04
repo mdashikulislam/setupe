@@ -26,7 +26,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- FONT ICONS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" rel="stylesheet">
+    <link href="css/flaticon.css" rel="stylesheet">
 
     <!-- PLUGINS STYLESHEET -->
     <link href="css/menu.css" rel="stylesheet">
@@ -135,7 +135,7 @@
             <!-- FOOTER CONTENT -->
             <div class="row">
                 <!-- FOOTER LOGO -->
-                <div class="col-xl-3">
+                <div class="col-xl-4">
                     <div class="footer-info">
                         <img class="footer-logo" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="footer-logo">
                         <div class="footer-contact-info mt-4">
@@ -146,7 +146,7 @@
 
 
                 <!-- FOOTER LINKS -->
-                <div class="col-sm-4 col-md-3 col-xl-2">
+                <div class="col-sm-4 col-md-4 col-xl-2">
                     <div class="footer-links fl-1">
 
                         <!-- Title -->
@@ -167,7 +167,7 @@
 
 
                 <!-- FOOTER LINKS -->
-                <div class="col-sm-4 col-md-3 col-xl-2">
+                <div class="col-sm-4 col-md-4 col-xl-2">
                     <div class="footer-links fl-2">
 
                         <!-- Title -->
@@ -181,16 +181,7 @@
 
                     </div>
                 </div>    <!-- END FOOTER LINKS -->
-                <!-- FOOTER LINKS -->
-                <div class="col-sm-4 col-md-3 col-xl-2">
-                    <div class="footer-links fl-3">
-                    </div>
-                </div>    <!-- END FOOTER LINKS -->
-                <!-- FOOTER LINKS -->
-                <div class="col-sm-6 col-md-3">
-                    <div class="footer-links fl-4">
-                    </div>
-                </div>    <!-- END FOOTER LINKS -->
+               
             </div>    <!-- END FOOTER CONTENT -->
             <hr>    <!-- FOOTER DIVIDER LINE -->
             <!-- BOTTOM FOOTER -->
@@ -229,6 +220,7 @@
 <script src="js/popper.min.js"></script>
 <script src="js/lunar.js"></script>
 <script src="js/wow.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/js/flat-ui.min.js"></script>
 
 <!-- Custom Script -->
 <script src="js/custom.js"></script>
