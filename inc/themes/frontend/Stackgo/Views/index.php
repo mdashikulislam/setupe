@@ -25,6 +25,7 @@
     <!-- BOOTSTRAP CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+
     <!-- FONT ICONS -->
     <link href="css/flaticon.css" rel="stylesheet">
 
@@ -39,7 +40,9 @@
     <!-- ON SCROLL ANIMATION -->
     <link href="css/animate.css" rel="stylesheet">
 
-    <link href="css/pink-theme.css" rel="stylesheet">
+    
+    <link href="css/blue-theme.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <!-- RESPONSIVE CSS -->
     <link href="css/responsive.css" rel="stylesheet">
     <script src="js/jquery-3.7.0.min.js"></script>
@@ -82,7 +85,7 @@
                     <?php if (uri("segment", 1) == ""): ?>
                         <!-- HEADER WHITE LOGO -->
                         <div class="desktoplogo">
-                            <a href="#" class="logo-white"><img
+                            <a href="<?php _ec( base_url() )?>" class="logo-white"><img
                                         src="<?php _ec(get_option("website_logo_light", base_url("assets/img/logo-light.svg"))) ?>"
                                         alt="logo"></a>
                         </div>
@@ -90,7 +93,7 @@
                     <?php else: ?>
                         <!-- HEADER BLACK LOGO -->
                         <div class="desktoplogo">
-                            <a href="#" class="logo-black"><img
+                            <a href="<?php _ec( base_url() )?>" class="logo-black"><img
                                         src="<?php _ec(get_option("website_logo_color", base_url("assets/img/logo-color.svg"))) ?>"
                                         alt="logo"></a>
                         </div>

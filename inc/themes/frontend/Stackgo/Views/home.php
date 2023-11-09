@@ -12,30 +12,64 @@
         border-radius: 50px;
     }
 </style>
-<section id="hero-2" class="bg--scroll hero-section">
-    <div class="container">
-        <div class="row d-flex align-items-center">
 
-            <!-- HERO IMAGE -->
-            <div class="col-md-6 order-last order-md-2">
-                <div class="hero-2-img wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
-                    <img class="img-fluid" src="images/hero-2-img.png" alt="hero-image">
+<section id="hero-23" class="bg--scroll hero-section">
+    <div class="container text-center">
+
+
+        <!-- HERO TEXT -->
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-9 col-xl-10">
+                <div class="hero-23-txt wow fadeInUp">
+
+                    <!-- Hero Logo  -->
+                    <div class="hero-square-logo">
+                        <img class="img-fluid" src="images/square-logo.png" alt="hero-logo">
+                    </div>
+
+                    <!-- Title -->
+                    <h2 class="s-58 w-700">
+                        <span class="color--theme d-block"><?php _e("The Best Solution")?></span> <?php _e("#1 Marketing Platform for Social Network")?>
+                    </h2>
+
+
+
                 </div>
             </div>
+        </div>	<!--END HERO TEXT -->
 
 
-            <!-- HERO TEXT -->
-            <div class="col-md-6 order-first order-md-2">
-                <div class="hero-2-txt wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
-                    <!-- Title -->
-                    <h2 class="s-56 w-700 color--black"><?php _e("The Best Solution")?> <?php _e("#1 Marketing Platform for Social Network")?></h2>
+        <!-- HERO IMAGE -->
+        <div class="row">
+            <div class="col">
+                <div class="hero-23-img video-preview wow fadeInUp">
+
+                    <!-- Play Icon -->
+                    <a class="video-popup1" href="https://www.youtube.com/embed/SZEflIVnhH8">
+                        <div class="video-btn video-btn-xl bg--theme">
+                            <div class="video-block-wrapper"><span class="flaticon-play-button"></span></div>
+                        </div>
+                    </a>
+
+                    <!-- Preview Image -->
+                    <img class="img-fluid" src="images/dashboard-03.png" alt="video-preview">
+
                 </div>
-            </div>	<!-- END HERO TEXT -->
+            </div>
+        </div>	<!-- END HERO IMAGE -->
 
 
-        </div>    <!-- End row -->
     </div>	   <!-- End container -->
-</section>
+
+
+    <!-- WAVE SHAPE BOTTOM -->
+    <div class="wave-shape-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,128L80,149.3C160,171,320,213,480,240C640,267,800,277,960,277.3C1120,277,1280,267,1360,261.3L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+    </div>
+
+
+</section>	<!-- END HERO-23 -->
+
 <section id="features-2" class="py-100 features-section division">
     <div class="container">
 
