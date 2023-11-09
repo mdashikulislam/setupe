@@ -2730,3 +2730,9 @@ if(!function_exists('list_countries')){
         return $countries;
     }
 }
+function pp($data) {
+    echo '<pre style="padding:10px;">';
+    print_r($data);
+    echo '</pre>';
+    exit();
+}
