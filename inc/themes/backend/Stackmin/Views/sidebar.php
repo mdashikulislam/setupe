@@ -7,10 +7,6 @@
 
             </a>
         </div>
-        
-        
-        
-
         <div class="sidebar-nav sidebar-nav-one d-flex flex-column flex-column-fluid w-100 pt-lg-0 hide-x-scroll">
             <ul class="nav flex-column">
                 <?php 
