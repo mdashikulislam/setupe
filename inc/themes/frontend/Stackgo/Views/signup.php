@@ -3,7 +3,7 @@
         <div class="mb-3 mt-3 d-flex" style="justify-content: center">
             <a href="<?php _ec( base_url() )?>"><img class="img-fluid" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="logo-image"></a>
         </div>
-        <form class="actionForm" action="<?php _ec( base_url("auth/signup") )?>" data-redirect="<?php _ec( base_url("login") )?>" method="POST">
+        <form data-redirect="<?php _ec( base_url("login") )?>" class="actionForm" action="<?php _ec( base_url("auth/signup") )?>" data-redirect="<?php _ec( base_url("login") )?>" method="POST">
 			<div class="row">
 				<div class="section-title m-0">
 					<span class="sub-title"><?php _e("Welcome")?></span>

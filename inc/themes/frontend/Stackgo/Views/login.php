@@ -1,5 +1,5 @@
 <div class="register-page-form">
-    <form class="actionForm" name="signinform" action="<?php _ec( base_url("auth/login") )?>" class="row sign-in-form">
+    <form class="actionForm" name="signinform" action="<?php _ec( base_url("auth/login") )?>" data-redirect="<?php _ec( base_url("dashboard") )?>" class="row sign-in-form">
         <!-- Google Button -->
         <div class="mb-3 d-flex" style="justify-content: center">
             <a href="<?php _ec( base_url() )?>"><img class="img-fluid" src="<?php _ec( get_option("website_logo_color", base_url("assets/img/logo-color.svg")) )?>" alt="logo-image"></a>
@@ -19,7 +19,7 @@
         <!-- Form Input -->
         <div class="col-md-12">
             <p class="p-sm input-header">Username</p>
-            <input class="form-control email" type="email" name="username" placeholder="<?php _e("Enter username or email")?>">
+            <input class="form-control email" type="text" name="username" placeholder="<?php _e("Enter username or email")?>">
         </div>
 
         <!-- Form Input -->
