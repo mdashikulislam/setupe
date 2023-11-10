@@ -55,15 +55,15 @@
 		    	<?php
 		    		switch ($value->status) {
 		    			case 1:
-		    				$status = '<span class="badge badge-light-warning fw-4 fs-12 p-6">'.__("Inactive").'</span>';
+		    				$status = '<span class="badge bg-label-warning fw-4 fs-12 p-6">'.__("Inactive").'</span>';
 		    				break;
 
 		    			case 2:
-		    				$status = '<span class="badge badge-light-success fw-4 fs-12 p-6">'.__("Active").'</span>';
+		    				$status = '<span class="badge bg-label-success fw-4 fs-12 p-6">'.__("Active").'</span>';
 		    				break;
 
 		    			default:
-		    				$status = '<span class="badge badge-light-danger fw-4 fs-12 p-6">'.__("Banned").'</span>';
+		    				$status = '<span class="badge bg-label-danger fw-4 fs-12 p-6">'.__("Banned").'</span>';
 		    				break;
 		    		}
 
@@ -74,8 +74,8 @@
 		    <td class="border-bottom"><?php _e( datetime_show( $value->created ) )?></td>
 		    <td class="text-end border-bottom text-nowrap py-4 pe-4">
 		    	<div class="dropdown dropdown-fixed dropdown-hide-arrow">
-				  	<button class="btn btn-light btn-active-light-primary btn-sm dropdown-toggle px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-				    	<i class="fad fa-th-list pe-0"></i>
+				  	<button class="btn p-0 dropdown-toggle hide-arrow show" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				    	<i class="bx bx-dots-vertical-rounded"></i>
 				  	</button>
 				  	<ul class="dropdown-menu dropdown-menu-end">
 				  		<?php 

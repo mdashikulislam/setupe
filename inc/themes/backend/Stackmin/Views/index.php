@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
     <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css"/>
     <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css"/>
+    <link rel="stylesheet" href="assets/pagination/pagination.min.css"/>
 
     <!-- Page CSS -->
     <script src="assets/vendor/libs/jquery/jquery.js"></script>
@@ -601,7 +602,7 @@
 <script src="assets/vendor/libs/i18n/i18n.js"></script>
 <script src="assets/vendor/libs/typeahead-js/typeahead.js"></script>
 <script src="assets/vendor/js/menu.js"></script>
-
+<script src="assets/pagination/pagination.min.js"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
