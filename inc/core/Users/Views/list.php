@@ -1,3 +1,5 @@
+
+
 <form class="" action="<?php _ec( get_module_url("delete") )?>">
 <div class="container d-sm-flex align-items-md-center pt-4 align-items-center justify-content-center">
     <div class="bd-search position-relative me-auto">
@@ -26,10 +28,10 @@
 
                     <?php if ( is_array( get_data($datatable, "columns") ) ): ?>
 
-                        <table 
-                            class="ajax-pages table table align-middle table-row-dashed fs-13 gy-5" 
-                            data-url="<?php _ec( get_module_url("ajax_list") )?>" 
-                            data-response=".ajax-result" 
+                        <table
+                            class="ajax-pages table table align-middle table-row-dashed fs-13 gy-5"
+                            data-url="<?php _ec( get_module_url("ajax_list") )?>"
+                            data-response=".ajax-result"
                             data-per-page="<?php _ec( get_data($datatable, "per_page") )?>"
                             data-current-page="<?php _ec( get_data($datatable, "current_page") )?>"
                             data-total-items="<?php _ec( get_data($datatable, "total_items") )?>"
@@ -58,7 +60,7 @@
                     <?php endif ?>
 
                 </div>
-                
+
             <?php endif ?>
 
             <?php if (get_data($datatable, "total_items") != 0): ?>

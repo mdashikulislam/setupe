@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
     <!-- Icons -->
     <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css"/>
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css"/>
@@ -39,6 +39,10 @@
     <script src="assets/vendor/js/helpers.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="assets/js/config.js"></script>
+     <script type="text/javascript">
+        var PATH = '<?php _ec(base_url() . "/")?>';
+        var csrf = "<?php _ec(csrf_hash()) ?>";
+    </script>
 
 </head>
 
@@ -66,10 +70,10 @@
                     <!-- Search -->
                     <div class="navbar-nav align-items-center">
                         <div class="nav-item navbar-search-wrapper mb-0">
-                            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-                                <i class="bx bx-search bx-sm"></i>
-                                <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-                            </a>
+<!--                            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">-->
+<!--                                <i class="bx bx-search bx-sm"></i>-->
+<!--                                <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>-->
+<!--                            </a>-->
                         </div>
                     </div>
                     <!-- /Search -->
@@ -540,10 +544,7 @@
 
 
             </nav>
-
-
             <!-- / Navbar -->
-
             <!-- Content wrapper -->
             <div class="content-wrapper">
                 <!-- Content -->
@@ -591,7 +592,7 @@
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
-
+<script src="assets/js/core.js"></script>
 <script src="assets/vendor/libs/jquery/jquery.js"></script>
 <script src="assets/vendor/libs/popper/popper.js"></script>
 <script src="assets/vendor/js/bootstrap.js"></script>
@@ -612,7 +613,11 @@
 
 <!-- Page JS -->
 <script src="assets/js/dashboards-analytics.js"></script>
-
+<script type="text/javascript">
+    $(function(){
+        Core.ajax_pages();
+    });
+</script>
 </body>
 
 </html>
