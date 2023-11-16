@@ -11,7 +11,7 @@
 	    </div>
 	</div>
 	<?php else: ?>
-		<select name="advance_options[shortlink]" data-control="select2" data-hide-search="true" class="form-select form-select-sm bg-body fw-bold border-0 miw-130">
+		<select name="advance_options[shortlink]" data-control="select2" data-hide-search="true" class="form-select  bg-body fw-bold border-0 miw-130">
 		    <option value="" data-icon="fal fa-link text-dark" data-icon-color="" selected><span><?php _e("URL Shortener")?></span></option>
 			<?php if (get_team_data("bitly_access_token", "") != ""): ?>
 		    <option value="bitly" data-img="<?php _ec( get_module_path( __DIR__, "Assets/img/bitly.png") )?>" ><?php _e("Bitly")?></option>

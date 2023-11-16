@@ -26,7 +26,7 @@ $top_sidebar = $request->top_sidebar;
             <?php foreach ($menus as $key => $row): ?>
                 <li class="menu-item">
                     <a href="<?php _e( base_url( $row['id'] ) )?>" class="menu-link">
-                        <i style="<?php _e( ( $row['color'] )?"color: ".$row['color']:"" )?>" class="<?php _e( $row['icon'] )?> fs-20 menu-icon"></i>
+                        <i  class="<?php _e( $row['icon'] )?> fs-20 menu-icon"></i>
                         <div class="text-truncate" data-i18n="<?php _e( $row['name'] )?>"><?php _e( $row['name'] )?></div>
                     </a>
                 </li>
@@ -40,7 +40,7 @@ $top_sidebar = $request->top_sidebar;
                     ?>
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i style="<?php _e( ( $row['color'] )?"color: ".$row['color']:"" )?>" class="menu-icon tf-icons bx bx-home-circle"></i>
+                        <i  class="menu-icon tf-icons bx bx-home-circle"></i>
                         <div class="text-truncate" data-i18n="<?php _e( $row['name'] )?>"><?php _e( $row['name'] )?></div>
                     </a>
                     <ul class="menu-sub">

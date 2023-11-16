@@ -45,6 +45,7 @@
                                     class="ajax-pages table table align-middle table-row-dashed fs-13 gy-5"
                                     data-url="<?php _ec(get_module_url("ajax_list")) ?>"
                                     data-response=".ajax-result"
+                                    data-page="<?php _ec(get_data($datatable, "per_page")) ?>"
                                     data-per-page="<?php _ec(get_data($datatable, "per_page")) ?>"
                                     data-current-page="<?php _ec(get_data($datatable, "current_page")) ?>"
                                     data-total-items="<?php _ec(get_data($datatable, "total_items")) ?>"

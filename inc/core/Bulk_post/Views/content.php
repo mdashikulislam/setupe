@@ -31,7 +31,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label fs-12"><?php _e("Interval per post (minute)")?></label>
-                            <input type="number" class="form-control form-control-sm" autocomplete="off" name="delay" value="<?php _e( get_team_data("bulk_delay", 60) )?>">
+                            <input type="number" class="form-control " autocomplete="off" name="delay" value="<?php _e( get_team_data("bulk_delay", 60) )?>">
                         </div>
                         <div class="alert alert-warning fs-12"><?php _e("If your posts are scheduled for an incorrect time or empty, the system will automatically set the first post with the current time and the next posts follow an interval delay per post")?></div>
                     </div>
