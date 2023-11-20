@@ -180,21 +180,48 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <?php
-                                $request = \Config\Services::request();
-                                $topbars = $request->topbars;
-                                ?>
-                                <?php if (!empty($topbars)): ?>
-                                <?php foreach ($topbars as $key => $value): ?>
-                                    <?php print_r($value);die();?>
-                                    <li>
-                                        <a class="dropdown-item" href="pages-profile-user.html">
-                                            <i class="bx bx-user me-2"></i>
-                                            <span class="align-middle">My Profile</span>
-                                        </a>
-                                    </li>
-                                    <?php endforeach ?>
-                                <?php endif ?>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url('index/account')?>">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle">Account</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url('profile/index/change_password')?>">
+                                        <i class="bx bx-key me-2"></i>
+                                        <span class="align-middle">Change Password</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url('index/settings')?>">
+                                        <i class="bx bx-key me-2"></i>
+                                        <span class="align-middle">Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url('index/plan')?>">
+                                        <i class="bx bx-store me-2"></i>
+                                        <span class="align-middle">Plan</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url('index/billing')?>">
+                                        <i class="bx bx-credit-card me-2"></i>
+                                        <span class="align-middle">Billing</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url('auth/logout')?>">
+                                        <i class="bx bx-log-out me-2"></i>
+                                        <span class="align-middle">Log Out</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <!--/ User -->
