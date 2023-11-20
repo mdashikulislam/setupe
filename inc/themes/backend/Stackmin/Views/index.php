@@ -18,32 +18,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?t=<?= time()?>">
     <!-- Icons -->
-    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css"/>
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css"/>
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css?t=<?= time()?>"/>
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css"/>
-    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css"/>
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css?t=<?= time()?>" class="template-customizer-core-css"/>
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css?t=<?= time()?>" class="template-customizer-theme-css"/>
 
-    <link rel="stylesheet" href="assets/css/demo.css"/>
+    <link rel="stylesheet" href="assets/css/demo.css?t=<?= time()?>"/>
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
-    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css"/>
-    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css"/>
-    <link rel="stylesheet" href="assets/pagination/pagination.min.css"/>
-    <link rel="stylesheet" href="assets/plugins/select2/css/select2.css"/>
-    <link rel="stylesheet" href="assets/plugins/webui-popover/webui-popover.min.css"/>
-    <link rel="stylesheet" href="assets/css/reset.css"/>
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/pagination/pagination.min.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/plugins/select2/css/select2.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/plugins/webui-popover/webui-popover.min.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/css/reset.css?t=<?= time()?>"/>
     <?php _ec( load_files("css") );?>
     <?php _ec( add_script_to_header() )?>
     <!-- Page CSS -->
-    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/jquery/jquery.js?t=<?= time()?>"></script>
     <!-- Helpers -->
-    <script src="assets/vendor/js/helpers.js"></script>
-    <script src="assets/js/config.js"></script>
+    <script src="assets/vendor/js/helpers.js?t=<?= time()?>"></script>
+    <script src="assets/js/config.js?t=<?= time()?>"></script>
     <script type="text/javascript">
         var PATH = '<?php _ec(base_url() . "/")?>';
         var csrf = "<?php _ec(csrf_hash()) ?>";
@@ -307,30 +307,30 @@
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
 
-<script src="assets/vendor/libs/jquery/jquery.js"></script>
-<script src="assets/vendor/libs/popper/popper.js"></script>
-<script src="assets/vendor/js/bootstrap.js"></script>
-<script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="assets/vendor/libs/hammer/hammer.js"></script>
-<script src="assets/vendor/libs/i18n/i18n.js"></script>
-<script src="assets/vendor/libs/typeahead-js/typeahead.js"></script>
-<script src="assets/vendor/js/menu.js"></script>
-<script src="assets/pagination/pagination.min.js"></script>
-<script src="assets/plugins/select2/js/select2.full.min.js"></script>
-<script src="assets/plugins/webui-popover/webui-popover.js"></script>
+<script src="assets/vendor/libs/jquery/jquery.js?t=<?= time()?>"></script>
+<script src="assets/vendor/libs/popper/popper.js?t=<?= time()?>"></script>
+<script src="assets/vendor/js/bootstrap.js?t=<?= time()?>"></script>
+<script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js?t=<?= time()?>"></script>
+<script src="assets/vendor/libs/hammer/hammer.js?t=<?= time()?>"></script>
+<script src="assets/vendor/libs/i18n/i18n.js?t=<?= time()?>"></script>
+<script src="assets/vendor/libs/typeahead-js/typeahead.js?t=<?= time()?>"></script>
+<script src="assets/vendor/js/menu.js?t=<?= time()?>"></script>
+<script src="assets/pagination/pagination.min.js?t=<?= time()?>"></script>
+<script src="assets/plugins/select2/js/select2.full.min.js?t=<?= time()?>"></script>
+<script src="assets/plugins/webui-popover/webui-popover.js?t=<?= time()?>"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
+<script src="assets/vendor/libs/apex-charts/apexcharts.js?t=<?= time()?>"></script>
 
 <!-- Main JS -->
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?t=<?= time()?>"></script>
 
 
 <!-- Page JS -->
 <!--<script src="assets/js/dashboards-analytics.js"></script>-->
-<script src="assets/js/layout.js"></script>
-<script src="assets/js/core.js"></script>
+<script src="assets/js/layout.js?t=<?= time()?>"></script>
+<script src="assets/js/core.js?t=<?= time()?>"></script>
 
 
 
