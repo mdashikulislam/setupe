@@ -26,6 +26,7 @@
     <!-- Core CSS -->
     <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css"/>
     <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css"/>
+
     <link rel="stylesheet" href="assets/css/demo.css"/>
 
     <!-- Vendors CSS -->
@@ -33,6 +34,9 @@
     <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css"/>
     <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css"/>
     <link rel="stylesheet" href="assets/pagination/pagination.min.css"/>
+    <link rel="stylesheet" href="assets/plugins/select2/css/select2.css"/>
+    <link rel="stylesheet" href="assets/plugins/webui-popover/webui-popover.min.css"/>
+    <link rel="stylesheet" href="assets/css/reset.css"/>
     <?php _ec( load_files("css") );?>
     <?php _ec( add_script_to_header() )?>
     <!-- Page CSS -->
@@ -96,13 +100,13 @@
                                     <div class="row row-bordered overflow-visible g-0">
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                      <i class="bx bx-calendar fs-4"></i>
+                      <i class="bx bx-calendar"></i>
                     </span>
                                             <a href="<?= base_url('account_manager')?>" class="stretched-link">Account Manager</a>
                                         </div>
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                      <i class="bx bx-food-menu fs-4"></i>
+                      <i class="bx bx-food-menu"></i>
                     </span>
                                             <a href="<?= base_url('bulk_post')?>" class="stretched-link">Bulk Post</a>
                                         </div>
@@ -110,13 +114,13 @@
                                     <div class="row row-bordered overflow-visible g-0">
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                      <i class="bx bx-window-open fs-4"></i>
+                      <i class="bx bx-window-open"></i>
                     </span>
                                             <a href="<?= base_url('file_manager')?>" class="stretched-link">File Manager</a>
                                         </div>
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                      <i class="bx bx-check-shield fs-4"></i>
+                      <i class="bx bx-check-shield"></i>
                     </span>
                                             <a href="<?= base_url('post')?>" class="stretched-link">Composer</a>
                                         </div>
@@ -124,13 +128,13 @@
                                     <div class="row row-bordered overflow-visible g-0">
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                      <i class="bx bx-pie-chart-alt-2 fs-4"></i>
+                      <i class="bx bx-pie-chart-alt-2"></i>
                     </span>
                                             <a href="<?= base_url('schedules')?>" class="stretched-link">Schedule</a>
                                         </div>
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                      <i class="bx bx-help-circle fs-4"></i>
+                      <i class="bx bx-help-circle"></i>
                     </span>
                                             <a href="<?= base_url('analytics')?>"
                                                class="stretched-link">Analytics</a>
@@ -302,7 +306,7 @@
 <?php _ec( add_script_to_footer() )?>
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
-<script src="assets/js/core.js"></script>
+
 <script src="assets/vendor/libs/jquery/jquery.js"></script>
 <script src="assets/vendor/libs/popper/popper.js"></script>
 <script src="assets/vendor/js/bootstrap.js"></script>
@@ -312,6 +316,8 @@
 <script src="assets/vendor/libs/typeahead-js/typeahead.js"></script>
 <script src="assets/vendor/js/menu.js"></script>
 <script src="assets/pagination/pagination.min.js"></script>
+<script src="assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="assets/plugins/webui-popover/webui-popover.js"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
@@ -322,7 +328,13 @@
 
 
 <!-- Page JS -->
-<script src="assets/js/dashboards-analytics.js"></script>
+<!--<script src="assets/js/dashboards-analytics.js"></script>-->
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/core.js"></script>
+
+
+
+
 <?php _ec( load_files("js") );?>
 <script type="text/javascript">
     $(function () {

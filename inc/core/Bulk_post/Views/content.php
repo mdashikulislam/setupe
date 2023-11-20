@@ -1,3 +1,9 @@
+<style>
+    ul li{
+        list-style-type: none!important;
+    }
+</style>
+
 <form class="actionForm" action="<?php _ec( get_module_url("save") )?>" method="POST">
     <div class="container d-flex align-items-md-center justify-content-between pt-5  mw-800">
         <div class="bd-search position-relative me-auto">
