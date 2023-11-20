@@ -18,7 +18,7 @@
 		        	<div class="d-flex position-relative t-30">
 		        		<div class="card-stats p-20 me-2 bg-white rounded">
 		        			<div class="text-success fs-20 mb-3">
-		        				<i class="fad fa-paper-plane"></i>
+		        				<i class="bx bx-paper-plane"></i>
 		        			</div>
 		        			<div class="fs-25 fw-6 text-gray-700"><?php _ec( number_format($value->sent) )?></div>
 		        			<div class="text-gray-500"><?php _e("Sent")?></div>

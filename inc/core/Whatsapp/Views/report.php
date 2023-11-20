@@ -81,7 +81,7 @@
 						<div class="col-md-4 mb-4">
 							<div class="card border b-r-10">
 								<div class="card-body">
-									<div class="fw-9 fs-40 text-success position-absolute t-10 r-10 opacity-20"><i class="fad fa-paper-plane"></i></div>
+									<div class="fw-9 fs-40 text-success position-absolute t-10 r-10 opacity-20"><i class="bx bx-paper-plane"></i></div>
 									<div class="fs-14 text-gray-600"><?php _e("Sent")?></div>
 									<div class="fw-9 fs-30 text-success d-flex"><span class="me-1"><?php _ec( short_number( $wa_bulk_sent_count ) )?></span> <span class="fs-14 fw-4 d-flex align-items-center mt-2"><?php _e("Messages")?></span></div>
 								</div>
@@ -136,7 +136,7 @@
 						<div class="col-md-12 mb-4">
 							<div class="card border b-r-10">
 								<div class="card-body">
-									<div class="fw-9 fs-40 text-success position-absolute t-10 r-10 opacity-20"><i class="fad fa-paper-plane"></i></div>
+									<div class="fw-9 fs-40 text-success position-absolute t-10 r-10 opacity-20"><i class="bx bx-paper-plane"></i></div>
 									<div class="fs-14 text-gray-600"><?php _e("Sent")?></div>
 									<div class="fw-9 fs-30 text-success d-flex"><span class="me-1"><?php _ec( short_number( $wa_autoresponder_count ) )?></span> <span class="fs-14 fw-4 d-flex align-items-center mt-2"><?php _e("Messages")?></span></div>
 								</div>
@@ -182,7 +182,7 @@
 						<div class="col-md-12 mb-4">
 							<div class="card border b-r-10">
 								<div class="card-body">
-									<div class="fw-9 fs-40 text-success position-absolute t-10 r-10 opacity-20"><i class="fad fa-paper-plane"></i></div>
+									<div class="fw-9 fs-40 text-success position-absolute t-10 r-10 opacity-20"><i class="bx bx-paper-plane"></i></div>
 									<div class="fs-14 text-gray-600"><?php _e("Sent")?></div>
 									<div class="fw-9 fs-30 text-success d-flex"><span class="me-1"><?php _ec( short_number( $wa_chatbot_count ) )?></span> <span class="fs-14 fw-4 d-flex align-items-center mt-2"><?php _e("Messages")?></span></div>
 								</div>
