@@ -317,6 +317,7 @@
 <script src="assets/pagination/pagination.min.js?t=<?= time() ?>"></script>
 <script src="assets/plugins/select2/js/select2.full.min.js?t=<?= time() ?>"></script>
 <script src="assets/plugins/webui-popover/webui-popover.js?t=<?= time() ?>"></script>
+<script src="assets/plugins/daterangepicker/moment.min.js?t=<?= time() ?>"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
