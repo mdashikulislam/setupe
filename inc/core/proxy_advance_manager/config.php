@@ -6,7 +6,7 @@ return [
     'author_uri' => 'https://stackposts.com',
     'version' => '1.0',
     'desc' => '',
-    'icon' => 'fas fa-user-shield',
+    'icon' => 'bx bx-shield-quarter',
     'color' => '',
     'menu' => [
     	'tab' => 3,

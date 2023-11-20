@@ -51,7 +51,7 @@
             <div class="card mt-4">
                 <div class="card-header cursor-pointer">
                     <div class="card-title m-0">
-                        <h3 class="fw-bold m-0"><i class="fad fa-question-circle text-primary"></i> <?php _e("How to use")?></h3>
+                        <h3 class="fw-bold m-0"><i class="bx bx-question-mark text-primary"></i> <?php _e("How to use")?></h3>
                     </div>
                 </div>
                 <div class="card-body p-0">

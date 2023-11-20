@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-id-card-alt',
+    'icon' => 'bx bx-id-card',
     'color' => '#e90a7b',
     'require' => true
 ];

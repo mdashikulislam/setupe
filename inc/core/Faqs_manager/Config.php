@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-question',
+    'icon' => 'bx bx-question-mark',
     'color' => '#060ded',
     'role' => 1,
     'menu' => [

@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-share-alt',
+    'icon' => 'bx bx-share-alt',
     'color' => '#002bff',
     'menu' => [
         'tab' => 3,

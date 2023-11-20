@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-blog',
+    'icon' => 'bx bxl-blogger',
     'color' => '#ff8100',
     'role' => 1,
     'menu' => [

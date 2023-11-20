@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-user-shield',
+    'icon' => 'bx bx-shield-quarter',
     'color' => '#ff4d3b',
     'menu' => [
         'tab' => 4,

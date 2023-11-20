@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-pencil-paintbrush',
+    'icon' => 'bx bx-wrench',
     'color' => '#36d633',
     'menu' => [
         'tab' => 3,

@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Configure your website',
-    'icon' => 'ti ti-brand-tabler',
+    'icon' => 'bx bx-user',
     'color' => '#009ef7',
     'role' => 1,
     'menu' => [

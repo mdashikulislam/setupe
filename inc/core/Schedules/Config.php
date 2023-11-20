@@ -6,7 +6,7 @@ return [
     'author' => '',
     'author_uri' => '',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-calendar-alt',
+    'icon' => 'bx bx-calendar',
     'color' => '#c300e7',
     'menu' => [
         'tab' => 3,

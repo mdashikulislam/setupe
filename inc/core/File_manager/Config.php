@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-folders',
+    'icon' => 'bx bx-folder',
     'color' => '#5156ff',
     'menu' => [
         'tab' => 3,
