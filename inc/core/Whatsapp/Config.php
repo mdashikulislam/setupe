@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fab fa-whatsapp',
+    'icon' => 'bx bxl-whatsapp',
     'color' => '#25d366',
     'parent' => [
         "id" => "features",

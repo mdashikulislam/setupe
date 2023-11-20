@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-rss-square',
+    'icon' => 'bx bx-rss',
     'color' => '#ff5e00',
     'menu' => [
         'tab' => 1,

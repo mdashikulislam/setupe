@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Schedule hundreds of posts in just a few clicks',
-    'icon' => 'fad fa-rocket',
+    'icon' => 'bx bx-rocket',
     'color' => '#41a900',
     'menu' => [
         'tab' => 1,

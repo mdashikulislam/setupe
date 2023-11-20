@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'Customize system interface',
-    'icon' => 'fad fa-paper-plane',
+    'icon' => 'bx bx-paper-plane',
     'color' => '#ff0000',
     'menu' => [
         'tab' => 1,

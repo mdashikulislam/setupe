@@ -6,7 +6,7 @@ return [
     'author' => 'ocmws',
     'author_uri' => 'https://ocmws.com',
     'desc' => 'ocmws - Social Media Management & Analysis Platform',
-    'icon' => 'fad fa-analytics',
+    'icon' => 'bx bx-bar-chart-square',
     'color' => '#3b5998',
     'menu' => [
         'tab' => 1,
