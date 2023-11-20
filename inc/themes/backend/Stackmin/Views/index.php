@@ -18,32 +18,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?t=<?= time()?>">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css?t=<?= time() ?>">
     <!-- Icons -->
-    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css?t=<?= time()?>"/>
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css?t=<?= time() ?>"/>
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css?t=<?= time()?>" class="template-customizer-core-css"/>
-    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css?t=<?= time()?>" class="template-customizer-theme-css"/>
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css?t=<?= time() ?>" class="template-customizer-core-css"/>
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css?t=<?= time() ?>"
+          class="template-customizer-theme-css"/>
 
-    <link rel="stylesheet" href="assets/css/demo.css?t=<?= time()?>"/>
+    <link rel="stylesheet" href="assets/css/demo.css?t=<?= time() ?>"/>
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css?t=<?= time()?>"/>
-    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css?t=<?= time()?>"/>
-    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css?t=<?= time()?>"/>
-    <link rel="stylesheet" href="assets/pagination/pagination.min.css?t=<?= time()?>"/>
-    <link rel="stylesheet" href="assets/plugins/select2/css/select2.css?t=<?= time()?>"/>
-    <link rel="stylesheet" href="assets/plugins/webui-popover/webui-popover.min.css?t=<?= time()?>"/>
-    <link rel="stylesheet" href="assets/css/reset.css?t=<?= time()?>"/>
-    <?php _ec( load_files("css") );?>
-    <?php _ec( add_script_to_header() )?>
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/pagination/pagination.min.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/plugins/select2/css/select2.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/plugins/webui-popover/webui-popover.min.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/css/reset.css?t=<?= time() ?>"/>
+    <?php _ec(load_files("css")); ?>
+    <?php _ec(add_script_to_header()) ?>
     <!-- Page CSS -->
-    <script src="assets/vendor/libs/jquery/jquery.js?t=<?= time()?>"></script>
+    <script src="assets/vendor/libs/jquery/jquery.js?t=<?= time() ?>"></script>
     <!-- Helpers -->
-    <script src="assets/vendor/js/helpers.js?t=<?= time()?>"></script>
-    <script src="assets/js/config.js?t=<?= time()?>"></script>
+    <script src="assets/vendor/js/helpers.js?t=<?= time() ?>"></script>
+    <script src="assets/js/config.js?t=<?= time() ?>"></script>
     <script type="text/javascript">
         var PATH = '<?php _ec(base_url() . "/")?>';
         var csrf = "<?php _ec(csrf_hash()) ?>";
@@ -102,13 +103,14 @@
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bx-calendar"></i>
                     </span>
-                                            <a href="<?= base_url('account_manager')?>" class="stretched-link">Account Manager</a>
+                                            <a href="<?= base_url('account_manager') ?>" class="stretched-link">Account
+                                                Manager</a>
                                         </div>
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bx-food-menu"></i>
                     </span>
-                                            <a href="<?= base_url('bulk_post')?>" class="stretched-link">Bulk Post</a>
+                                            <a href="<?= base_url('bulk_post') ?>" class="stretched-link">Bulk Post</a>
                                         </div>
                                     </div>
                                     <div class="row row-bordered overflow-visible g-0">
@@ -116,13 +118,14 @@
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bx-window-open"></i>
                     </span>
-                                            <a href="<?= base_url('file_manager')?>" class="stretched-link">File Manager</a>
+                                            <a href="<?= base_url('file_manager') ?>" class="stretched-link">File
+                                                Manager</a>
                                         </div>
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bx-check-shield"></i>
                     </span>
-                                            <a href="<?= base_url('post')?>" class="stretched-link">Composer</a>
+                                            <a href="<?= base_url('post') ?>" class="stretched-link">Composer</a>
                                         </div>
                                     </div>
                                     <div class="row row-bordered overflow-visible g-0">
@@ -130,13 +133,13 @@
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bx-pie-chart-alt-2"></i>
                     </span>
-                                            <a href="<?= base_url('schedules')?>" class="stretched-link">Schedule</a>
+                                            <a href="<?= base_url('schedules') ?>" class="stretched-link">Schedule</a>
                                         </div>
                                         <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bx-help-circle"></i>
                     </span>
-                                            <a href="<?= base_url('analytics')?>"
+                                            <a href="<?= base_url('analytics') ?>"
                                                class="stretched-link">Analytics</a>
                                         </div>
                                     </div>
@@ -147,24 +150,24 @@
 
 
                         <!-- Style Switcher -->
-<!--                        <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">-->
-<!--                            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"-->
-<!--                               data-bs-toggle="dropdown">-->
-<!--                                <i class='bx bx-sm bx-moon'></i>-->
-<!--                            </a>-->
-<!--                            <ul class="dropdown-menu dropdown-menu-end dropdown-styles">-->
-<!--                                <li>-->
-<!--                                    <a class="dropdown-item" href="javascript:void(0);" data-theme="light">-->
-<!--                                        <span class="align-middle"><i class='bx bx-sun me-2'></i>Light</span>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">-->
-<!--                                        <span class="align-middle"><i class="bx bx-moon me-2"></i>Dark</span>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
+                        <!--                        <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">-->
+                        <!--                            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"-->
+                        <!--                               data-bs-toggle="dropdown">-->
+                        <!--                                <i class='bx bx-sm bx-moon'></i>-->
+                        <!--                            </a>-->
+                        <!--                            <ul class="dropdown-menu dropdown-menu-end dropdown-styles">-->
+                        <!--                                <li>-->
+                        <!--                                    <a class="dropdown-item" href="javascript:void(0);" data-theme="light">-->
+                        <!--                                        <span class="align-middle"><i class='bx bx-sun me-2'></i>Light</span>-->
+                        <!--                                    </a>-->
+                        <!--                                </li>-->
+                        <!--                                <li>-->
+                        <!--                                    <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">-->
+                        <!--                                        <span class="align-middle"><i class="bx bx-moon me-2"></i>Dark</span>-->
+                        <!--                                    </a>-->
+                        <!--                                </li>-->
+                        <!--                            </ul>-->
+                        <!--                        </li>-->
                         <!-- / Style Switcher-->
 
 
@@ -177,70 +180,21 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="pages-account-settings-account.html">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 me-3">
-                                                <div class="avatar avatar-online">
-                                                    <img src="assets/img/avatars/1.png" alt
-                                                         class="w-px-40 h-auto rounded-circle">
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <span class="fw-medium d-block">John Doe</span>
-                                                <small class="text-muted">Admin</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-profile-user.html">
-                                        <i class="bx bx-user me-2"></i>
-                                        <span class="align-middle">My Profile</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-account-settings-account.html">
-                                        <i class="bx bx-cog me-2"></i>
-                                        <span class="align-middle">Settings</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-account-settings-billing.html">
-                  <span class="d-flex align-items-center align-middle">
-                    <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                    <span class="flex-grow-1 align-middle">Billing</span>
-                    <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                  </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-faq.html">
-                                        <i class="bx bx-help-circle me-2"></i>
-                                        <span class="align-middle">FAQ</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="pages-pricing.html">
-                                        <i class="bx bx-dollar me-2"></i>
-                                        <span class="align-middle">Pricing</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
-                                        <i class="bx bx-power-off me-2"></i>
-                                        <span class="align-middle">Log Out</span>
-                                    </a>
-                                </li>
+                                <?php
+                                $request = \Config\Services::request();
+                                $topbars = $request->topbars;
+                                ?>
+                                <?php if (!empty($topbars)): ?>
+                                <?php foreach ($topbars as $key => $value): ?>
+                                    <?php print_r($value);die();?>
+                                    <li>
+                                        <a class="dropdown-item" href="pages-profile-user.html">
+                                            <i class="bx bx-user me-2"></i>
+                                            <span class="align-middle">My Profile</span>
+                                        </a>
+                                    </li>
+                                    <?php endforeach ?>
+                                <?php endif ?>
                             </ul>
                         </li>
                         <!--/ User -->
@@ -303,39 +257,37 @@
 </div>
 <!-- / Layout wrapper -->
 
-<?php _ec( add_script_to_footer() )?>
+<?php _ec(add_script_to_footer()) ?>
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
 
-<script src="assets/vendor/libs/jquery/jquery.js?t=<?= time()?>"></script>
-<script src="assets/vendor/libs/popper/popper.js?t=<?= time()?>"></script>
-<script src="assets/vendor/js/bootstrap.js?t=<?= time()?>"></script>
-<script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js?t=<?= time()?>"></script>
-<script src="assets/vendor/libs/hammer/hammer.js?t=<?= time()?>"></script>
-<script src="assets/vendor/libs/i18n/i18n.js?t=<?= time()?>"></script>
-<script src="assets/vendor/libs/typeahead-js/typeahead.js?t=<?= time()?>"></script>
-<script src="assets/vendor/js/menu.js?t=<?= time()?>"></script>
-<script src="assets/pagination/pagination.min.js?t=<?= time()?>"></script>
-<script src="assets/plugins/select2/js/select2.full.min.js?t=<?= time()?>"></script>
-<script src="assets/plugins/webui-popover/webui-popover.js?t=<?= time()?>"></script>
+<script src="assets/vendor/libs/jquery/jquery.js?t=<?= time() ?>"></script>
+<script src="assets/vendor/libs/popper/popper.js?t=<?= time() ?>"></script>
+<script src="assets/vendor/js/bootstrap.js?t=<?= time() ?>"></script>
+<script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js?t=<?= time() ?>"></script>
+<script src="assets/vendor/libs/hammer/hammer.js?t=<?= time() ?>"></script>
+<script src="assets/vendor/libs/i18n/i18n.js?t=<?= time() ?>"></script>
+<script src="assets/vendor/libs/typeahead-js/typeahead.js?t=<?= time() ?>"></script>
+<script src="assets/vendor/js/menu.js?t=<?= time() ?>"></script>
+<script src="assets/pagination/pagination.min.js?t=<?= time() ?>"></script>
+<script src="assets/plugins/select2/js/select2.full.min.js?t=<?= time() ?>"></script>
+<script src="assets/plugins/webui-popover/webui-popover.js?t=<?= time() ?>"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="assets/vendor/libs/apex-charts/apexcharts.js?t=<?= time()?>"></script>
+<script src="assets/vendor/libs/apex-charts/apexcharts.js?t=<?= time() ?>"></script>
 
 <!-- Main JS -->
-<script src="assets/js/main.js?t=<?= time()?>"></script>
+<script src="assets/js/main.js?t=<?= time() ?>"></script>
 
 
 <!-- Page JS -->
 <!--<script src="assets/js/dashboards-analytics.js"></script>-->
-<script src="assets/js/layout.js?t=<?= time()?>"></script>
-<script src="assets/js/core.js?t=<?= time()?>"></script>
+<script src="assets/js/layout.js?t=<?= time() ?>"></script>
+<script src="assets/js/core.js?t=<?= time() ?>"></script>
 
 
-
-
-<?php _ec( load_files("js") );?>
+<?php _ec(load_files("js")); ?>
 <script type="text/javascript">
     $(function () {
         Core.ajax_pages();
