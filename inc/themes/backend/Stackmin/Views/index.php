@@ -181,7 +181,25 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item" href="<?=base_url('index/account')?>">
+                                    <a class="dropdown-item" href="pages-account-settings-account.html">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar avatar-online">
+                                                    <img src="../../assets/img/avatars/1.png" alt="" class="w-px-40 h-auto rounded-circle">
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <span class="fw-medium d-block">John Doe</span>
+                                                <small class="text-muted">Admin</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?=base_url('profile/index/account')?>">
                                         <i class="bx bx-user me-2"></i>
                                         <span class="align-middle">Account</span>
                                     </a>
@@ -193,8 +211,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?=base_url('index/settings')?>">
-                                        <i class="bx bx-key me-2"></i>
+                                    <a class="dropdown-item" href="<?=base_url('profile/index/settings')?>">
+                                        <i class="bx bx-cog me-2"></i>
                                         <span class="align-middle">Settings</span>
                                     </a>
                                 </li>
@@ -202,13 +220,13 @@
                                     <div class="dropdown-divider"></div>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?=base_url('index/plan')?>">
+                                    <a class="dropdown-item" href="<?=base_url('profile/index/plan')?>">
                                         <i class="bx bx-store me-2"></i>
                                         <span class="align-middle">Plan</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?=base_url('index/billing')?>">
+                                    <a class="dropdown-item" href="<?=base_url('profile/index/billing')?>">
                                         <i class="bx bx-credit-card me-2"></i>
                                         <span class="align-middle">Billing</span>
                                     </a>
