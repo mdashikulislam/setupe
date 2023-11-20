@@ -44614,22 +44614,22 @@ textarea.form-control-lg {
 
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content,
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-link {
-    padding-left: calc(1rem + 1rem);
+    /*padding-left: calc(1rem + 1rem);*/
 }
 
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content,
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-link {
-    padding-left: calc(2rem + 1rem);
+    /*padding-left: calc(2rem + 1rem);*/
 }
 
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content,
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-link {
-    padding-left: calc(3rem + 1rem);
+    /*padding-left: calc(3rem + 1rem);*/
 }
 
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content,
 .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-sub:not([data-popper-placement]) > .menu-item > .menu-link {
-    padding-left: calc(4rem + 1rem);
+    /*padding-left: calc(4rem + 1rem);*/
 }
 
 .menu-fit .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content,
