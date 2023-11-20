@@ -24,7 +24,7 @@ $top_sidebar = $request->top_sidebar;
     <ul class="menu-inner py-1">
         <?php foreach ($top_sidebar as $key => $menus): ?>
             <?php foreach ($menus as $key => $row): ?>
-                <li class="menu-item">
+                <li class="menu-item <?php _e( uri('segment', 1) == $row['id']? 'active ':'' )?>">
                     <a href="<?php _e( base_url( $row['id'] ) )?>" class="menu-link">
                         <i  class="<?php _e( $row['icon'] )?> tf-icons menu-icon"></i>
                         <div class="text-truncate" data-i18n="<?php _e( $row['name'] )?>"><?php _e( $row['name'] )?></div>
