@@ -26,7 +26,7 @@ $top_sidebar = $request->top_sidebar;
             <?php foreach ($menus as $key => $row): ?>
                 <li class="menu-item">
                     <a href="<?php _e( base_url( $row['id'] ) )?>" class="menu-link">
-                        <i  class="<?php _e( $row['icon'] )?> fs-20 menu-icon"></i>
+                        <i  class="<?php _e( $row['icon'] )?> tf-icons menu-icon"></i>
                         <div class="text-truncate" data-i18n="<?php _e( $row['name'] )?>"><?php _e( $row['name'] )?></div>
                     </a>
                 </li>
