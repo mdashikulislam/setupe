@@ -44,6 +44,7 @@
     <script src="assets/vendor/libs/jquery/jquery.js?t=<?= time() ?>"></script>
     <!-- Helpers -->
     <script src="assets/vendor/js/helpers.js?t=<?= time() ?>"></script>
+    <script src="assets/vendor/js/template-customizer.js?t=<?= time() ?>"></script>
     <script src="assets/js/config.js?t=<?= time() ?>"></script>
     <script type="text/javascript">
         var PATH = '<?php _ec(base_url() . "/")?>';
@@ -306,7 +307,6 @@
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
 
-<script src="assets/vendor/libs/jquery/jquery.js?t=<?= time() ?>"></script>
 <script src="assets/vendor/libs/popper/popper.js?t=<?= time() ?>"></script>
 <script src="assets/vendor/js/bootstrap.js?t=<?= time() ?>"></script>
 <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js?t=<?= time() ?>"></script>
@@ -318,6 +318,7 @@
 <script src="assets/plugins/select2/js/select2.full.min.js?t=<?= time() ?>"></script>
 <script src="assets/plugins/webui-popover/webui-popover.js?t=<?= time() ?>"></script>
 <script src="assets/plugins/daterangepicker/moment.min.js?t=<?= time() ?>"></script>
+<script src="assets/plugins/minicolors/jquery.minicolors.min.js?t=<?= time() ?>"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->

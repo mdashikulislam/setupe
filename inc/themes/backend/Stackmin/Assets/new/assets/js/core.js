@@ -340,7 +340,7 @@ function Core(){
 
                     that.attr( 'data-page', page + 1);
 
-                    $(".n-scroll").getNiceScroll().resize();
+                    //$(".n-scroll").getNiceScroll().resize();
                 });
             }
         }
@@ -480,7 +480,7 @@ function Core(){
             });
 
             setTimeout(function(){
-                $(".emojionearea-editor").niceScroll({cursorcolor:"#ddd"});
+                //$(".emojionearea-editor").niceScroll({cursorcolor:"#ddd"});
             }, 1000);
         }
     };
