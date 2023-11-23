@@ -311,6 +311,10 @@
 
 <script src="assets/vendor/libs/popper/popper.js?t=<?= time() ?>"></script>
 <script src="assets/vendor/js/bootstrap.js?t=<?= time() ?>"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/maps/modules/map.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
 <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js?t=<?= time() ?>"></script>
 <script src="assets/vendor/libs/hammer/hammer.js?t=<?= time() ?>"></script>
 <script src="assets/vendor/libs/i18n/i18n.js?t=<?= time() ?>"></script>
