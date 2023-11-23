@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="assets/pagination/pagination.min.css?t=<?= time() ?>"/>
     <link rel="stylesheet" href="assets/plugins/select2/css/select2.css?t=<?= time() ?>"/>
     <link rel="stylesheet" href="assets/plugins/webui-popover/webui-popover.min.css?t=<?= time() ?>"/>
+    <link rel="stylesheet" href="assets/plugins/jquery-ui/jquery-ui.min.css?t=<?= time() ?>"/>
     <link rel="stylesheet" href="assets/css/reset.css?t=<?= time() ?>"/>
     <?php _ec(load_files("css")); ?>
     <?php _ec(add_script_to_header()) ?>
@@ -320,7 +321,7 @@
 <script src="assets/plugins/daterangepicker/moment.min.js?t=<?= time() ?>"></script>
 <script src="assets/plugins/minicolors/jquery.minicolors.min.js?t=<?= time() ?>"></script>
 <!-- endbuild -->
-
+<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Vendors JS -->
 <script src="assets/vendor/libs/apex-charts/apexcharts.js?t=<?= time() ?>"></script>
 
