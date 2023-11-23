@@ -323,8 +323,7 @@
 <script src="assets/plugins/minicolors/jquery.minicolors.min.js?t=<?= time() ?>"></script>
 <!-- endbuild -->
 <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="assets/plugins/daterangepicker/moment.min.js"></script>
-<script src="assets/daterangepicker/daterangepicker.js"></script>
+<script src="assets/daterangepicker/daterangepicker.jst=<?= time() ?>"></script>
 <!-- Vendors JS -->
 <script src="assets/vendor/libs/apex-charts/apexcharts.js?t=<?= time() ?>"></script>
 
