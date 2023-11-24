@@ -5,15 +5,16 @@
 </style>
 
 <form class="actionForm" action="<?php _ec( get_module_url("save") )?>" method="POST">
-    <div class="container d-flex align-items-md-center justify-content-between pt-5  mw-800">
-        <div class="bd-search position-relative me-auto">
-            <h1><i class="<?php _ec( $config['icon'] )?>" style="color: <?php _ec( $config['color'] )?>;" ></i> <?php _e( $config['name'] )?></h1>
-            <span><?php _e( $config['desc'] )?></span>
-        </div>
-    </div>
 
     <div class="py-5 container mw-800">
-
+        <div class="card bg-primary text-white mb-3">
+            <div class="card-body">
+                <h1 class="card-title text-white"><i class="<?php _ec( $config['icon'] )?> fs-40" style="color: #fff" ></i> <?php _e( $config['name'] )?></h1>
+                <p class="card-text">
+                    <?php _e( $config['desc'] )?>
+                </p>
+            </div>
+        </div>
         <div class="card b-r-10">
             <div class="card-body">
                 <div class="mb-3">
