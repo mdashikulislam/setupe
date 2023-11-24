@@ -26,29 +26,29 @@
 		</div>
 	</div>
 
-	<ul class="nav nav-pills mb-4 m-t-40 bg-light-dark rounded" id="pills-tab">
+	<ul class="nav nav-pills bg-white mb-3 nav-fill" id="pills-tab">
 	  	<li class="nav-item">
-	    	<button class="nav-link bg-active-white text-gray-700 px-4 py-3 <?php _e( ( uri("segment", 3) == "account" || uri("segment", 3) == "" )?"active":"" )?>" id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#profile_account" type="button" role="tab"><i class="fad fa-user me-2 text-primary"></i> <?php _e("Account")?></button>
+	    	<button class="nav-link  px-4 py-3 <?php _e( ( uri("segment", 3) == "account" || uri("segment", 3) == "" )?"active":"" )?>" id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#profile_account" type="button" role="tab"><i class="fad fa-user me-2 text-primary"></i> <?php _e("Account")?></button>
 	  	</li>
 	  	<li class="nav-item">
-	    	<button class="nav-link bg-active-white text-gray-700 px-4 py-3 <?php _e( uri("segment", 3) == "change_password"?"active":"" )?>" id="pills-change-password-tab" data-bs-toggle="pill" data-bs-target="#profile_change_password" type="button" role="tab"><i class="fad fa-key me-2 text-success"></i> <?php _e("Change password")?></button>
+	    	<button class="nav-link  px-4 py-3 <?php _e( uri("segment", 3) == "change_password"?"active":"" )?>" id="pills-change-password-tab" data-bs-toggle="pill" data-bs-target="#profile_change_password" type="button" role="tab"><i class="fad fa-key me-2 text-success"></i> <?php _e("Change password")?></button>
 	  	</li>
 	  	<li class="nav-item">
-	    	<button class="nav-link bg-active-white text-gray-700 px-4 py-3 <?php _e( uri("segment", 3) == "plan"?"active":"" )?>" id="pills-plan-tab" data-bs-toggle="pill" data-bs-target="#profile_plan" type="button" role="tab"><i class="fad fa-box-open me-2 text-danger"></i> <?php _e("Plan")?></button>
+	    	<button class="nav-link  px-4 py-3 <?php _e( uri("segment", 3) == "plan"?"active":"" )?>" id="pills-plan-tab" data-bs-toggle="pill" data-bs-target="#profile_plan" type="button" role="tab"><i class="fad fa-box-open me-2 text-danger"></i> <?php _e("Plan")?></button>
 	  	</li>
 	  	<?php if (find_modules("payment")): ?>
 	  	<li class="nav-item">
-	    	<button class="nav-link bg-active-white text-gray-700 px-4 py-3 <?php _e( uri("segment", 3) == "billing"?"active":"" )?>" id="pills-billing-tab" data-bs-toggle="pill" data-bs-target="#profile_billing" type="button" role="tab"><i class="fad fa-credit-card me-2 text-warning"></i> <?php _e("Billing")?></button>
+	    	<button class="nav-link  px-4 py-3 <?php _e( uri("segment", 3) == "billing"?"active":"" )?>" id="pills-billing-tab" data-bs-toggle="pill" data-bs-target="#profile_billing" type="button" role="tab"><i class="fad fa-credit-card me-2 text-warning"></i> <?php _e("Billing")?></button>
 	  	</li>
 	  	<?php endif ?>
 	  	<?php if (!empty($settings)): ?>
 	  	<li class="nav-item">
-	    	<button class="nav-link bg-active-white text-gray-700 px-4 py-3 <?php _e( uri("segment", 3) == "settings"?"active":"" )?>" id="pills-settings-tab" data-bs-toggle="pill" data-bs-target="#profile_settings" type="button" role="tab"><i class="fad fa-cog me-2 text-info"></i> <?php _e("Settings")?></button>
+	    	<button class="nav-link  px-4 py-3 <?php _e( uri("segment", 3) == "settings"?"active":"" )?>" id="pills-settings-tab" data-bs-toggle="pill" data-bs-target="#profile_settings" type="button" role="tab"><i class="fad fa-cog me-2 text-info"></i> <?php _e("Settings")?></button>
 	  	</li>
 	  	<?php endif ?>
 	</ul>
 
-	<div class="tab-content" id="pills-tabContent">
+	<div class="tab-content p-0" id="pills-tabContent">
 	  	<div class="tab-pane fade  <?php _e( (uri("segment", 3) == "account" || uri("segment", 3) == "")?"show active":"" )?>" id="profile_account">
 	  		<form class="actionForm" action="<?php _ec( base_url("profile/save_account") )?>" <?php _ec( post("require")=="timezone"?'data-redirect="'.base_url("dashboard").'"':'' )?> >
   				<div class="card">
