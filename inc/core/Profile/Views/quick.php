@@ -1,64 +1,45 @@
-<div class="col-md-12">
-	<div class="row">
-		<div class="col-md-4 mb-4">
-			<div class="card">
-				<div class="card-body bg-gray-800 shadow b-r-15 d-flex p-0 justify-content-between">
-					
-					<div class="text-gray-100 p-25 flex-fill miw-220">
-						<div class="fw-6 text-gray-100 fs-16"><span class="d-inline-block text-over mw-210">Welcome 🎉 <?php _ec( get_user("fullname") )?> </div>
-						<div class="fs-12">
-							<?php
-						    $expiration_date = get_user("expiration_date");
-						    ?>
-						    <?php if ($expiration_date > time()): ?>
-						        <?php _ec( sprintf( __("Expire date: %s"), date_show( get_user("expiration_date") ) ) )?>
-						    <?php else: ?>
-						        <?php if ($expiration_date == 0): ?>
-						            <?php _e( sprintf( __("Expire date: %s"), __("Unlimited") ) )?>
-						        <?php else: ?>
-						            <span class="text-warning"><?php _ec("Subscription has expired")?></span>
-						        <?php endif ?>
-						    <?php endif ?>
-						</div>
-						<div class="fs-20 mt-3 fw-6">
-							<?php if ($plan): ?>
-								<?php _ec($plan->name)?>
-							<?php else: ?>
-								<?php _e("No plan")?>
-							<?php endif ?>
+<div class="col-lg-12 mb-4 order-0">
+    <div class="card">
+        <div class="d-flex align-items-end row">
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Welcome  <?php _ec( get_user("fullname") )?>! 🎉</h5>
+                    <p class="mb-2">
+                        <span class="fw-medium">
+                            Current Plan:
+                            <?php if ($plan): ?>
+                                <?php _ec($plan->name)?>
+                            <?php else: ?>
+                                <?php _e("No plan")?>
+                            <?php endif ?>
+                        </span>
+                    </p>
+                    <p class="mb-4">
+                        <span class="fw-medium">
+                            <?php
+                            $expiration_date = get_user("expiration_date");
+                            ?>
+                            <?php if ($expiration_date > time()): ?>
+                                <?php _ec( sprintf( __("Expire date: %s"), date_show( get_user("expiration_date") ) ) )?>
+                            <?php else: ?>
+                                <?php if ($expiration_date == 0): ?>
+                                    <?php _e( sprintf( __("Expire date: %s"), __("Unlimited") ) )?>
+                                <?php else: ?>
+                                    <span class="text-warning"><?php _ec("Subscription has expired")?></span>
+                                <?php endif ?>
+                            <?php endif ?>
 
-
-						</div>
-						<a href="<?php _ec( base_url("profile/index/plan") )?>" class="btn bg-gray-100 b-r-6 text-gray-900 mt-2 b-r-15 fw-5"><?php _e("View plan")?></a>
-					</div>
-					<div class="flex-fill">
-						<img src="<?php _ec( get_module_path( __DIR__, "Assets/img/badge.svg" ) )?>" class="w-99">
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<div class="col-md-8 mb-4">
-			<div class="card b-r-15 b-r-15 p-20 border">
-				<div class="card-body d-flex nx-scroll no-update w-100 p-5">
-					<?php if (!empty($result)): ?>
-						
-						<?php foreach ($result as $key => $value): ?>
-							<a href="<?php _ec( base_url( $value["id"] ) )?>" class="d-block border b-r-15 p-20 miw-150 text-over-all bg-gray-100 me-4 text-center">
-								<div class="fs-50 text-primary">
-									<i class="<?php _ec($value['icon'])?>" style="color: <?php _ec($value['color'])?>"></i>
-								</div>
-
-								<div class="fw-6 text-gray-800">
-									<?php _e($value['name'])?>
-								</div>
-							</a>
-						<?php endforeach ?>
-
-					<?php endif ?>
-
-				</div>
-			</div>
-		</div>
-	</div>
+                        </span>
+                    </p>
+                    <a href="<?php _ec( base_url("profile/index/plan") )?>" class="btn btn-sm btn-label-primary">View Plan</a>
+                </div>
+            </div>
+            <div class="col-sm-5 text-center text-sm-left">
+                <div class="card-body pb-0 px-0 px-md-4">
+                    <img src="assets/img/illustrations/man-with-laptop-dark.png" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

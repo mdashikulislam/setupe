@@ -88,7 +88,6 @@ class Dashboard extends \CodeIgniter\Controller
                 });
             }
         }
-
         $data = [
             "title" => $this->config['name'],
             "desc" => $this->config['desc'],

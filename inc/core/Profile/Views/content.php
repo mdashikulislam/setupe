@@ -47,10 +47,10 @@
 	  	</li>
 	  	<?php endif ?>
 	</ul>
-	 
+
 	<div class="tab-content" id="pills-tabContent">
 	  	<div class="tab-pane fade  <?php _e( (uri("segment", 3) == "account" || uri("segment", 3) == "")?"show active":"" )?>" id="profile_account">
-	  		<form class="actionForm" action="<?php _ec( base_url("profile/save_account") )?>" <?php _ec( post("require")=="timezone"?'data-redirect="'.base_url("dashboard").'"':'' )?> >		
+	  		<form class="actionForm" action="<?php _ec( base_url("profile/save_account") )?>" <?php _ec( post("require")=="timezone"?'data-redirect="'.base_url("dashboard").'"':'' )?> >
   				<div class="card">
 		  			<div class="card-header">
 		  				<div class="card-title">
@@ -86,7 +86,7 @@
 			                <label for="username" class="form-label"><?php _e('Username')?></label>
 			                <input type="text" class="form-control form-control-solid" id="username" name="username" <?php _ec( !get_option("accept_change_username", 1)?"readonly":"" )?> value="<?php _e( get_user("username") )?>">
 			            </div>
-	  					
+
 		  				<div class="mb-3">
 			                <label for="email" class="form-label"><?php _e('Email')?></label>
 			                <input type="text" class="form-control form-control-solid" id="email" name="email" <?php _ec( !get_option("accept_change_email", 1)?"readonly":"" )?> value="<?php _e( get_user("email") )?>">
@@ -119,7 +119,7 @@
 		  	</form>
 	  	</div>
 	  	<div class="tab-pane fade <?php _e( uri("segment", 3) == "change_password"?"show active":"" )?>" id="profile_change_password">
-	  		<form class="actionForm" action="<?php _ec( base_url("profile/save_change_password") )?>">		
+	  		<form class="actionForm" action="<?php _ec( base_url("profile/save_change_password") )?>">
   				<div class="card">
 		  			<div class="card-header">
 		  				<div class="card-title">
@@ -180,9 +180,9 @@
 		  										<span class="text-danger"><?php _e("Your account may have expired, but our service is still here for you.")?></span>
 		  									<?php endif ?>
 
-		  									
+
 		  								<?php endif ?>
-			  							
+
 			  						</div>
 			  					<?php else: ?>
 			  						<div class="d-flex flex-column justify-content-center align-items-center text-gray-500 h-100 mih-300">
@@ -198,7 +198,7 @@
 					            <?php }else{?>
 					                <a href="<?php _e( base_url("pricing") )?>" class="btn btn-primary b-r-30"><?php _e("Upgrade your plan")?></a>
 					            <?php }?>
-					        <?php }?>   
+					        <?php }?>
 		  				</div>
 			  		</div>
 	  			</div>
@@ -217,7 +217,7 @@
                                 ?>
 
                                 <?php if ( !empty($plan_items) ): ?>
-                                    
+
                                     <?php foreach ($plan_items as $plan_item): ?>
                                         <li class="list-group-item px-4 py-3 border-top-0 border-start-0 border-end-0 d-flex align-items-center text-gray-700 fw-6"><?php _e( $plan_item["label"] )?></li>
 
@@ -228,7 +228,7 @@
                                                 <li class="list-group-item px-4 py-3 border-top-0 border-start-0 border-end-0 d-flex align-items-center text-gray-600"><i class="me-2 fa fa-check text-success"></i><?php _e($value["name"])?></li>
                                             	<?php endif ?>
                                             <?php endforeach ?>
-                                            
+
                                         <?php endif ?>
                                     <?php endforeach ?>
 
@@ -241,7 +241,7 @@
 	  	</div>
 	  	<?php if (find_modules("payment")): ?>
 	  	<div class="tab-pane fade <?php _e( uri("segment", 3) == "billing"?"show active":"" )?>" id="profile_billing">
-	  		<form class="actionForm" action="<?php _ec( base_url("profile/save_bill_info") )?>">	
+	  		<form class="actionForm" action="<?php _ec( base_url("profile/save_bill_info") )?>">
   				<div class="card mb-4">
 		  			<div class="card-header">
 		  				<div class="card-title">
@@ -332,7 +332,7 @@
 	  	<?php endif ?>
 
   		<?php if (!empty($settings)): ?>
-	  	<div class="tab-pane fade <?php _e( uri("segment", 3) == "settings"?"show active":"" )?>" id="profile_settings">	
+	  	<div class="tab-pane fade <?php _e( uri("segment", 3) == "settings"?"show active":"" )?>" id="profile_settings">
 
   			<?php foreach ($settings as $key => $value): ?>
   				<?php if (is_array($value) && isset($value["data"]) && isset($value["data"]["content"])): ?>
