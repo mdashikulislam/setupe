@@ -19,7 +19,7 @@
 		?>
 		
 		<div class="col-md-4 col-sm-12 col-xs-4 mb-4 rss-item" data-id="<?php _e($value->ids)?>">
-		    <div class="card d-flex flex-column flex-row-auto card-custom card-custom-warning rounded">
+		    <div class="card d-flex flex-column flex-row-auto card-custom card-custom-primary rounded">
 		        <div class="card-header d-block position-relative mh-260">
 		        	<div class="d-flex justify-content-end mt-4">
 		        		<div class="me-3">
@@ -34,7 +34,7 @@
 		        		</div>
 		        		<div class="dropdown dropdown-hide-arrow" data-dropdown-spacing="40">
 	                        <a href="javascript:void(0);" class="dropdown-toggle d-block position-relative btn p-0 text-gray-100 opacity-75-hover" data-toggle="dropdown" aria-expanded="true">
-	                            <i class="fad fa-th-large fs-14"></i>
+	                            <i class="bx bx-dots-vertical-rounded"></i>
 	                        </a>
 	                        <div class="dropdown-menu dropdown-menu-right p-20">
 	                        	<a href="<?php _ec( $value->url )?>" class="dropdown-item" target="_blank" data-remove="rss-item" data-id="<?php _ec( $value->ids )?>"><i class="fad fa-external-link-square-alt text-warning"></i> <?php _e("Open RSS url")?></a>

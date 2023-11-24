@@ -49440,9 +49440,9 @@ select.w-100 + .select2 {
 }
 
 .card-custom.card-custom-primary .card-header {
-    background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #009EF7 0%, #72D0FF 100%);
     border-radius: 12px;
+    background: linear-gradient(45deg, #707cff 0%, #fa81e8 100%);
+    box-shadow: 0 5px 20px rgba(250, 129, 232, 0.3);
 }
 
 .card-custom.card-custom-danger .card-header {
