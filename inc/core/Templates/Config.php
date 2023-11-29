@@ -12,7 +12,7 @@ return [
         'tab' => 3,
         'type' => 'top',
         'position' => 1020,
-        'name' => 'Ai-tools',
+        'name' => 'Ai Tools',
         'color' => '#36d633',
         'icon' => 'fad fa-comment-alt-lines',
         'sub_menu' => [

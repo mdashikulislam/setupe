@@ -1,8 +1,8 @@
 <?php
-namespace Core\Caption\Models;
+namespace Core\Templates\Models;
 use CodeIgniter\Model;
 
-class CaptionModel extends Model
+class TemplatesModel extends Model
 {
     public function get_list( $return_data = true )
     {

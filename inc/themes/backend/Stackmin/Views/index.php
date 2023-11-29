@@ -67,7 +67,7 @@
         <!-- Layout container -->
         <div class="layout-page">
             <!-- Navbar -->
-            <nav class="layout-navbar  navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme container-fluid"
+            <nav class="layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme container"
                  id="layout-navbar">
                 <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
                     <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
@@ -264,7 +264,7 @@
             <!-- Content wrapper -->
             <div class="content-wrapper">
 
-                <div class="container-fluid flex-grow-1 container-p-y">
+                <div class="flex-grow-1 container-p-y container-xxl">
                     <?php _ec($this->renderSection('content'), false) ?>
                 </div>
                 <!-- / Content -->
