@@ -17,8 +17,8 @@ return [
         'icon' => 'fad fa-comment-alt-lines',
         'sub_menu' => [
             'position' => 2000,
-            'id' => 'ai_tools/template',
-            'name' => 'template',
+            'id' => 'templates',
+            'name' => 'templates',
             'icon' => 'fad fa-comment-alt-lines',
             'color' => '#b303fb'
         ]
