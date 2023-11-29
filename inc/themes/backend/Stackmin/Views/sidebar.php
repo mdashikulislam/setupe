@@ -24,41 +24,40 @@ $top_sidebar = $request->top_sidebar;
     <ul class="menu-inner py-1">
         <?php foreach ($top_sidebar as $key => $menus): ?>
             <?php foreach ($menus as $key => $row): ?>
-                <li class="menu-item <?php _e( uri('segment', 1) == $row['id']? 'active ':'' )?>">
-                    <a href="<?php _e( base_url( $row['id'] ) )?>" class="menu-link">
-                        <i  class="<?php _e( $row['icon'] )?> tf-icons menu-icon"></i>
-                        <div class="text-truncate" data-i18n="<?php _e( $row['name'] )?>"><?php _e( $row['name'] )?></div>
-                    </a>
-                </li>
-            <?php if( ! isset( $row['sub_menu'] ) ):?>
-            <?php else:?>
+
+                <?php if (!isset($row['sub_menu'])): ?>
+                    <li class="menu-item <?php _e(uri('segment', 1) == $row['id'] ? 'active ' : '') ?>">
+                        <a href="<?php _e(base_url($row['id'])) ?>" class="menu-link">
+                            <i class="<?php _e($row['icon']) ?> tf-icons menu-icon"></i>
+                            <div class="text-truncate" data-i18n="<?php _e($row['name']) ?>"><?php _e($row['name']) ?></div>
+                        </a>
+                    </li>
+                <?php else: ?>
                     <?php
                     $ids = [];
-                    foreach ($row['sub_menu'] as $sub){
+                    foreach ($row['sub_menu'] as $sub) {
                         $ids[] = get_data($sub, 'id');
                     }
                     ?>
-                <li class="menu-item <?php _e( in_array( uri('segment', 1), $ids, true )?'active open':'' )?>">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i  class="menu-icon tf-icons bx bx-home-circle"></i>
-                        <div class="text-truncate" data-i18n="<?php _e( $row['name'] )?>"><?php _e( $row['name'] )?></div>
-                    </a>
-                    <ul class="menu-sub">
-                        <?php foreach ($row['sub_menu'] as $sub): ?>
-                        <li class="menu-item <?php _e( (uri('segment', 1) == get_data($sub, 'id'))?'active':'' )?>">
-                            <a href="<?php _e( base_url( get_data($sub, 'id') ) )?>" class="menu-link">
-                                <div class="text-truncate" data-i18n="<?php _e( get_data($sub, 'name') )?>"><?php _e( get_data($sub, 'name') )?></div>
-                            </a>
-                        </li>
-                        <?php endforeach ?>
-                    </ul>
-                </li>
-            <?php endif;?>
-            <?php endforeach ?>
+                    <li class="menu-item <?php _e(in_array(uri('segment', 1), $ids, true) ? 'active open' : '') ?>">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div class="text-truncate"
+                                 data-i18n="<?php _e($row['name']) ?>"><?php _e($row['name']) ?></div>
+                        </a>
+                        <ul class="menu-sub">
+                            <?php foreach ($row['sub_menu'] as $sub): ?>
+                                <li class="menu-item <?php _e((uri('segment', 1) == get_data($sub, 'id')) ? 'active' : '') ?>">
+                                    <a href="<?php _e(base_url(get_data($sub, 'id'))) ?>" class="menu-link">
+                                        <div class="text-truncate"
+                                             data-i18n="<?php _e(get_data($sub, 'name')) ?>"><?php _e(get_data($sub, 'name')) ?></div>
+                                    </a>
+                                </li>
+                            <?php endforeach ?>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
         <?php endforeach ?>
-
-
     </ul>
-
-
 </aside>
