@@ -2730,9 +2730,50 @@ if(!function_exists('list_countries')){
         return $countries;
     }
 }
+
+
 function pp($data) {
     echo '<pre style="padding:10px;">';
     print_r($data);
     echo '</pre>';
     exit();
+}
+
+function categoryColor($name)
+{
+    switch ($name) {
+        case 'content':
+            return 'success';
+        case 'website':
+            return 'danger';
+        case 'marketing':
+            return 'info';
+        case 'social':
+            return 'warning';
+        case 'custom':
+            return 'dark';
+    }
+}
+
+
+if(!function_exists("get_user_info")){
+    function get_user_info( $uid = 0){
+        if($uid == 0){
+            return false;
+            //$uid =  get_session('uid');
+        }else{
+            $uid = db_get("ids", TB_USERS, "id = '{$uid}'")->ids;
+        }
+
+        $user = db_get("*", TB_USERS, "ids = '".$uid."'");
+
+        return $user;
+    }
+}
+if(!function_exists("get_current_user_info")){
+    function get_current_user_info( ){
+        $uid =  get_session('uid');
+        $user = db_get("*", TB_USERS, "ids = '".$uid."'");
+        return $user;
+    }
 }

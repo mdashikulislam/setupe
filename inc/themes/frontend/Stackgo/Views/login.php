@@ -18,7 +18,7 @@
         <?php endif ?>
         <!-- Form Input -->
         <div class="col-md-12">
-            <p class="p-sm input-header">Username</p>
+            <p class="p-sm input-header">Userqqname</p>
             <input class="form-control email" type="text" name="username" placeholder="<?php _e("Enter username or email")?>">
         </div>
 
