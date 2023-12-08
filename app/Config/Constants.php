@@ -339,7 +339,7 @@ const LANGUAGE_ARRAY = [
     'zu' => ['name' => 'isiZulu', 'iso' => 'Zulu', 'rtl' => 0]
 ];
 define('REQUEST_USER_AGENT',getenv('REQUEST_USER_AGENT') ? :  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36');
-define('OPEN_API_KEY',getenv('OPEN_API_KEY') ? :'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');
+define('OPEN_API_KEY',getenv('OPEN_API_KEY') ? :'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');
 define('OPENAI_COMPLETIONS_MODEL',getenv('OPENAI_COMPLETIONS_MODEL') ? :'gpt-3.5-turbo');
 
 const RATIOS = [

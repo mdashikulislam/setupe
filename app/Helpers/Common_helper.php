@@ -2870,3 +2870,53 @@ if (!function_exists('getLanguageNameByCode')){
 function getCurrentTimeStamp(){
     return date('Y-m-d H:i:s');
 }
+
+function diffForHuman($startTime)
+{
+    if (empty($startTime)){
+        return false;
+    }
+    // Create a DateTime object for the start time using your format
+    $startDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $startTime);
+
+    // Create a DateTime object for the current time
+    $endDateTime = new DateTime();
+
+    // Calculate the time difference
+    $interval = $startDateTime->diff($endDateTime);
+
+    // Determine the appropriate unit of time (hour, minute, second, etc.)
+    if ($interval->y > 0) {
+        $unit = 'year';
+        $value = $interval->y;
+    } elseif ($interval->m > 0) {
+        $unit = 'month';
+        $value = $interval->m;
+    } elseif ($interval->d > 0) {
+        $unit = 'day';
+        $value = $interval->d;
+    } elseif ($interval->h > 0) {
+        $unit = 'hour';
+        $value = $interval->h;
+    } elseif ($interval->i > 0) {
+        $unit = 'minute';
+        $value = $interval->i;
+    } else {
+        $unit = 'second';
+        $value = $interval->s;
+    }
+
+    // Format the result as "X unit(s) ago"
+    $output = $value . ' ' . $unit . ($value > 1 ? 's' : '') . ' ago';
+
+    return $output;
+}
+function getShortContent($long_text = '', $show = 100)
+{
+    $filtered_text = strip_tags($long_text);
+    if ($show < strlen($filtered_text)) {
+        return substr($filtered_text, 0, $show) . '...';
+    } else {
+        return $filtered_text;
+    }
+}

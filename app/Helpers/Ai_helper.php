@@ -81,6 +81,7 @@ if(!function_exists("fetchCompletions")){
 
         $response = curl_exec($ch);
         curl_close($ch);
+        pp($response);
         if (curl_errno($ch)) {
             return false;
         } else {

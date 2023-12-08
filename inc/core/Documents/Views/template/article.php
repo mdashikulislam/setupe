@@ -152,7 +152,7 @@
         </div>
     </div>
     <div class="col-12 col-lg-7 px-2">
-        <?php if (!empty($documents)):?>
+        <?php if (isset($documents)):?>
             <div class="mt-3" id="ai-results">
                 <?php foreach ($documents as $document) :?>
                     <?php include 'result.php'?>
@@ -161,7 +161,7 @@
         <?php endif; ?>
         <?php
             $class = 'd-flex';
-            if (!empty($documents)){
+            if (isset($documents)){
                 $class = 'd-none';
             }
         ?>
