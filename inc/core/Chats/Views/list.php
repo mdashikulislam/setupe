@@ -5,12 +5,12 @@
                 <li class="breadcrumb-item d-flex align-items-center">
                     <a href="<?php base_url('dashboard')?>" class="text-muted">Home</a>
                 </li>
-                <li class="breadcrumb-item active text-dark">Documents</li>
+                <li class="breadcrumb-item active text-dark">Chats</li>
             </ol>
         </nav>
         <div class="d-flex">
             <div class="flex-grow-1">
-                <h1 class="h2 mb-3 d-inline-block">Documents</h1>
+                <h1 class="h2 mb-3 d-inline-block">Chats</h1>
             </div>
             <div>
                 <a href="http://127.0.0.1:8000/documents/new" class="btn btn-primary mb-3">New</a>
@@ -26,30 +26,25 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Template</th>
+                                <th>Message</th>
                                 <th>Words</th>
                                 <th>Created at</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php if (!empty($documents)):?>
-                        <?php foreach ($documents as $document):?>
+                        <?php if (!empty($chats)):?>
+                        <?php foreach ($chats as $chat):?>
                             <tr>
                                 <td>
-                                    <div class="d-flex" style="justify-content: flex-start;gap: 15px">
-                                        <div class="icons">
-                                            <i style="color: #28a745!important;" class="fa fa-list text-<?= categoryColor($document->category_id) ?>"></i>
-                                        </div>
-                                        <div class="desc">
-                                            <a href="<?= get_module_url('view/'.$document->id) ?>" class="text-truncate" style=""><?= $document->name ?></a>
-                                            <p class="m-0"><?php echo getShortContent($document->result)?></p>
-                                        </div>
+                                    <div class="desc">
+                                        <a href="" class="text-truncate" style=""><?= $chat->name ?></a>
+                                        <p class="m-0"></p>
                                     </div>
                                 </td>
-                                <td><span style="text-transform: capitalize" class="badge text-truncate badge-<?= categoryColor($document->category_id) ?>"><?= $document->template_name ?></span></td>
-                                <td><?php echo number_format($document->words, 0, __('.'), __(','))?></td>
-                                <td><?= diffForHuman($document->created_at) ?></td>
+                                <td><?= $chat->messages ?></td>
+                                <td><?= number_format($chat->words, 0, __('.'), __(',')) ?></td>
+                                <td><?= diffForHuman($chat->created_at) ?></td>
                                 <td>
                                     <div class="dropdown" style="display: flex;justify-content: flex-end">
                                         <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,7 +52,7 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID" style="">
                                             <a class="dropdown-item" href="javascript:void(0);"><i class='bx bx-edit-alt mr-3'></i>Edit</a>
-                                            <a class="dropdown-item" href="<?= get_module_url('view/'.$document->id) ?>"><i class='bx bx-bullseye mr-3'></i>View</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class='bx bx-bullseye mr-3'></i>View</a>
                                             <a class="dropdown-item" href="javascript:void(0);"><i class='bx bx-trash mr-3'></i>Delete</a>
                                         </div>
                                     </div>
@@ -89,10 +84,10 @@
 <script>
     let table = new DataTable('table',{
         "columnDefs": [
-            { "width": "65%", "targets": 0 },
-            { "width": "10%", "targets": 1 },
-            { "width": "10%", "targets": 2 },
-            { "width": "10%", "targets": 3 },
+            { "width": "35%", "targets": 0 },
+            { "width": "20%", "targets": 1 },
+            { "width": "20%", "targets": 2 },
+            { "width": "20%", "targets": 3 },
             { "width": "5%", "targets": 4 }
         ]
     });

@@ -64,76 +64,39 @@ class Documents extends \CodeIgniter\Controller
         }
     }
 
-    public function view($name)
+    public function view($id = '0')
     {
-        if (empty($name)){
+        if (empty($id)){
             return false;
         }
-        $template =  $this->db->table('templates');
-        if (is_int($name)){
-            $template = $template->where('id',$name);
-        }else{
-            $template = $template->where('slug',$name);
-        }
-        $template =  $template->get()->getRow();
-        if (empty($template)){
+        if (!is_int((int)$id)){
             redirect_to(get_module_url('/'));
         }
+        $document = $this->db->table('documents')->where('id',$id)->get()->getRow();
+        if (empty($document)){
+            redirect_to(get_module_url('/'));
+        }
+        $user = get_current_user_info();
+
+        if ($document->user_id != $user->id &&  $user->role == 0){
+            redirect_to(get_module_url('/'));
+        }
+
         $default = ['article'];
         $data = [
             "title" => $this->config['menu']['sub_menu']['name'],
             "desc" => $this->config['desc'],
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-             $this->db->table('templates')
-                ->where('id','=',$template->id)
-                ->set('views','views + 1',false)
-                ->update();
-             $prompt = str_replace(
-                 [':language', ':title', ':subheadings', ':keywords', ':length'],
-                 [getLanguageNameByCode($_POST['language']),$_POST['title'],$_POST['subheadings'],$_POST['keywords'],$_POST['length']],
-                 $template->prompt);
-            $documents = documentsStore($_POST,$prompt);
-            $tempData = [
-                'view'=>$name,
-                'template'=>$template,
-                'documents'=>$documents,
-                'name'=>$_POST['name'],
-                'title'=>$_POST['title'],
-                'keywords'=>$_POST['keywords'],
-                'subheadings'=>$_POST['subheadings'],
-                'creativity'=>$_POST['creativity'],
-                'variations'=>$_POST['variations'],
-                'language'=>$_POST['language'],
-                'length'=>$_POST['length']
-            ];
-            if (in_array($name,$default)){
-                $data['content'] = view('Core\Templates\Views\template'.DIRECTORY_SEPARATOR .$name, $tempData);
-            }else{
-                $data['content'] = '';
-            }
+
         }else{
             $tempData = [
-                'view'=>$name,
-                'template'=>$template,
-                'documents'=>'',
-                'name'=>'',
-                'title'=>'',
-                'keywords'=>'',
-                'subheadings'=>'',
-                'creativity'=>'',
-                'variations'=>'',
-                'language'=>'',
-                'length'=>''
+                'document'=>$document,
             ];
-            if (in_array($name,$default)){
-                $data['content'] = view('Core\Templates\Views\template'.DIRECTORY_SEPARATOR .$name, $tempData);
-            }else{
-                $data['content'] = '';
-            }
+            $data['content'] = view('Core\Documents\Views\view', $tempData);
         }
 
-        return view('Core\Templates\Views\index', $data);
+        return view('Core\Documents\Views\index', $data);
 
     }
 

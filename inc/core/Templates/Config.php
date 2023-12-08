@@ -21,6 +21,10 @@ return [
             'name' => 'templates',
             'icon' => 'fad fa-comment-alt-lines',
             'color' => '#b303fb'
+        ],
+        'js'=>[
+            'https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js',
+            base_url('inc/core/Templates/Assets/js/function.js?t='.time())
         ]
     ]
 ];

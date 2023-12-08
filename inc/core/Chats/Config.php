@@ -17,11 +17,10 @@ return [
         'icon' => 'fad fa-comment-alt-lines',
         'sub_menu' => [
             'position' => 2000,
-            'id' => 'documents',
-            'name' => 'documents',
+            'id' => 'chats',
+            'name' => 'chats',
             'icon' => 'fad fa-comment-alt-lines',
             'color' => '#b303fb'
-        ],
-
+        ]
     ]
 ];

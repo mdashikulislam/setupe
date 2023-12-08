@@ -2920,3 +2920,41 @@ function getShortContent($long_text = '', $show = 100)
         return $filtered_text;
     }
 }
+function encodeQuill($input)
+{
+    return "<p>" . str_replace("\n\n", "<p><br></p>", $input) . "</p>";
+}
+function cleanHTML($html)
+{
+    // Define an array of allowed HTML tags and their attributes
+    $allowedTags = [
+        'a' => ['href', 'title'],
+        'p' => [],
+        'strong' => [],
+        'em' => [],
+        // Add more tags and attributes as needed
+    ];
+
+    // Remove any HTML attributes not in the allowed list
+    $html = preg_replace_callback(
+        '/<[^>]*>/i',
+        function ($matches) use ($allowedTags) {
+            $tag = strtolower($matches[0]);
+            if (isset($allowedTags[$tag])) {
+                preg_match_all('/\s+([a-z_\-]+)(?:=([\'"])(.*?)\\2)?/i', $matches[0], $attributes);
+                $filteredAttributes = array_filter($attributes[1], function ($attr) use ($allowedTags, $tag) {
+                    return in_array(strtolower($attr), $allowedTags[$tag]);
+                });
+                $filteredAttributes = array_unique($filteredAttributes);
+                return "<$tag" . ($filteredAttributes ? ' ' . implode(' ', $filteredAttributes) : '') . '>';
+            }
+            return '';
+        },
+        $html
+    );
+
+    // Strip any remaining tags and their content
+    $html = strip_tags($html, '<' . implode('><', array_keys($allowedTags)) . '>');
+
+    return $html;
+}

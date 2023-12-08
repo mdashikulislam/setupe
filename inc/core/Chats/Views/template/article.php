@@ -152,7 +152,7 @@
         </div>
     </div>
     <div class="col-12 col-lg-7 px-2">
-        <?php if (!empty($documents)):?>
+        <?php if (isset($documents)):?>
             <div class="mt-3" id="ai-results">
                 <?php foreach ($documents as $document) :?>
                     <?php include 'result.php'?>
@@ -161,7 +161,7 @@
         <?php endif; ?>
         <?php
             $class = 'd-flex';
-            if (!empty($documents)){
+            if (isset($documents)){
                 $class = 'd-none';
             }
         ?>
@@ -177,7 +177,7 @@
                     <div class="my-3">Generating the content, please wait.</div>
                     <div class="spinner-border spinner-border-sm width-6 height-6 mb-5" role="status"></div>
                 </div>
-                <div class="position-absolute top-0 right-0 bottom-0 left-0 border rounded border-width-2 border-dashed opacity-20 z-0" style="border: 2px dashed #000!important;"></div>
+                <div class="position-absolute top-0 right-0 bottom-0 left-0 border rounded border-width-2 border-dashed opacity-20 z-0"></div>
             </div>
         </div>
     </div>

@@ -122,4 +122,4 @@ $db = \Config\Database::connect();
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
-<script src="<?= base_url('inc/core/Templates/Assets/js/function.js?t='.time()) ?>"></script>
+<script src="<?= base_url('inc/themes/backend/Stackmin/Assets/new/assets/js/function.js?t='.time()) ?>"></script>
