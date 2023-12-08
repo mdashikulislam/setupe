@@ -2777,3 +2777,96 @@ if(!function_exists("get_current_user_info")){
         return $user;
     }
 }
+//Ai Helper
+if (!function_exists('lengthDropdown')){
+    function lengthDropdown(){
+        $data = ['short','medium','long'];
+        $html = '';
+        foreach ($data as $d){
+            $html .='<option value="'.$d.'">'.ucfirst($d).'</option>';
+        }
+        return $html;
+    }
+}
+if (!function_exists('toneDropdown')){
+    function toneDropdown(){
+        $data = [
+            'professional'  => ['emoji' => '🤵', 'name' => 'Professional'],
+            'childish'      => ['emoji' => '😜', 'name' => 'Childish'],
+            'luxurious'     => ['emoji' => '💎', 'name' => 'Luxurious'],
+            'confident'     => ['emoji' => '💪', 'name' => 'Confident'],
+            'friendly'      => ['emoji' => '😊', 'name' => 'Friendly'],
+            'exciting'      => ['emoji' => '😃', 'name' => 'Exciting'],
+            'casual'        => ['emoji' => '😎', 'name' => 'Casual'],
+            'dramatic'      => ['emoji' => '🎭', 'name' => 'Dramatic'],
+            'masculine'     => ['emoji' => '👨‍💼', 'name' => 'Masculine'],
+            'feminine'      => ['emoji' => '👩‍💼', 'name' => 'Feminine'],
+        ];
+        $html = '';
+        foreach ($data as $key => $d){
+            $html .='<option value="'.$key.'">'.($d['emoji']).' '.($d['name']).'</option>';
+        }
+        return $html;
+    }
+}
+
+if (!function_exists('languageDropdown')){
+    function languageDropdown($selected = ''){
+        $html = '';
+        foreach (LANGUAGE_ARRAY as $key => $d){
+            $html .='<option value="'.$key.'" ';
+            if (empty($selected) && $key == 'en'){
+                $html .=' selected ';
+            }else{
+                if ($key == $selected){
+                    $html .=' selected ';
+                }
+            }
+            $html .= ">".($d['name']).'</option>';
+        }
+        return $html;
+    }
+}
+
+if (!function_exists('creativitiesDropdown')){
+    function creativitiesDropdown(){
+        $data = [
+            'repetitive'    => 0,
+            'deterministic' => 0.25,
+            'original'      => 0.50,
+            'creative'      => 0.75,
+            'imaginative'   => 1
+        ];
+        $html = '';
+        foreach ($data as $key => $d){
+            $html .='<option value="'.$d.'">'.ucfirst($key).'</option>';
+        }
+        return $html;
+    }
+}
+if (!function_exists('variationsDropdown')){
+    function variationsDropdown(){
+        $data = [
+            1,
+            2,
+            3,
+            4
+        ];
+        $html = '';
+        foreach ($data as $key => $d){
+            $html .='<option value="'.$d.'">'.$d.'</option>';
+        }
+        return $html;
+    }
+}
+if (!function_exists('getLanguageNameByCode')){
+    function getLanguageNameByCode($code = ''){
+        if (!empty($code)){
+            return LANGUAGE_ARRAY[$code]['name'];
+        }
+        return false;
+    }
+}
+function getCurrentTimeStamp(){
+    return date('Y-m-d H:i:s');
+}

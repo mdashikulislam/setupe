@@ -1,4 +1,4 @@
-console.log('loaded')
+
 
 // Cookie law banner
 document.querySelector('#cookie-banner-dismiss') && document.querySelector('#cookie-banner-dismiss').addEventListener('click', function () {
@@ -6,229 +6,209 @@ document.querySelector('#cookie-banner-dismiss') && document.querySelector('#coo
     document.querySelector('#cookie-banner').classList.add('d-none');
 });
 
+
 // Dark mode
-document.querySelector('#dark-mode') && document.querySelector('#dark-mode').addEventListener('click', function (e) {
+$('#dark-mode').click(function(e) {
     e.preventDefault();
 
+    // Toggle dark mode class on the HTML element
+    $('html').toggleClass('dark');
+
     // Update the sources
-    document.querySelectorAll('[data-theme-target]').forEach(function (element) {
-        element.setAttribute(element.dataset.themeTarget, document.querySelector('html').classList.contains('dark') ? element.dataset.themeLight : element.dataset.themeDark);
+    $('[data-theme-target]').each(function() {
+        var $element = $(this);
+        var targetAttr = $element.data('theme-target');
+        var themeLight = $element.data('theme-light');
+        var themeDark = $element.data('theme-dark');
+        var currentTheme = $('html').hasClass('dark') ? themeLight : themeDark;
+        $element.attr(targetAttr, currentTheme);
     });
 
     // Update the text
-    this.querySelector('span').textContent = document.querySelector('html').classList.contains('dark') ? this.querySelector('span').dataset.textLight : this.querySelector('span').dataset.textDark;
+    var $darkModeButton = $('#dark-mode');
+    var textLight = $darkModeButton.find('span').data('text-light');
+    var textDark = $darkModeButton.find('span').data('text-dark');
+    var currentText = $('html').hasClass('dark') ? textLight : textDark;
+    $darkModeButton.find('span').text(currentText);
 
     // Update the dark mode cookie
-    setCookie('dark_mode', (document.querySelector('html').classList.contains('dark') ? 0 : 1), new Date().getTime() + (10 * 365 * 24 * 60 * 60 * 1000), '/');
-
-    // Update the CSS class
-    if (document.querySelector('html').classList.contains('dark')) {
-        document.querySelector('html').classList.remove('dark');
-    } else {
-        document.querySelector('html').classList.add('dark');
-    }
+    var darkModeValue = $('html').hasClass('dark') ? 0 : 1;
+    setCookie('dark_mode', darkModeValue, new Date().getTime() + (10 * 365 * 24 * 60 * 60 * 1000), '/');
 });
 
 // Pricing plans
-document.querySelector('#plan-month') && document.querySelector('#plan-month').addEventListener("click", function () {
-    document.querySelectorAll('.plan-month').forEach(element => element.classList.add('d-block'));
-    document.querySelectorAll('.plan-year').forEach(element => element.classList.remove('d-block'));
+$('#plan-month').click(function() {
+    $('.plan-month').addClass('d-block');
+    $('.plan-year').removeClass('d-block');
 });
 
-document.querySelector('#plan-year') && document.querySelector('#plan-year').addEventListener("click", function () {
-    document.querySelectorAll('.plan-year').forEach(element => element.classList.add('d-block'));
-    document.querySelectorAll('.plan-month').forEach(element => element.classList.remove('d-block', 'plan-preload'));
+$('#plan-year').click(function() {
+    $('.plan-year').addClass('d-block');
+    $('.plan-month').removeClass('d-block plan-preload');
 });
-
 let updateSummary = (type) => {
     if (type == 'month') {
-        document.querySelectorAll('.checkout-month').forEach(function (element) {
-            element.classList.add('d-inline-block');
-        });
-
-        document.querySelectorAll('.checkout-year').forEach(function (element) {
-            element.classList.remove('d-inline-block');
-        });
+        $('.checkout-month').addClass('d-inline-block');
+        $('.checkout-year').removeClass('d-inline-block');
     } else {
-        document.querySelectorAll('.checkout-month').forEach(function (element) {
-            element.classList.remove('d-inline-block');
-        });
-
-        document.querySelectorAll('.checkout-year').forEach(function (element) {
-            element.classList.add('d-inline-block');
-        });
+        $('.checkout-month').removeClass('d-inline-block');
+        $('.checkout-year').addClass('d-inline-block');
     }
 };
 
 let updateBillingType = (value) => {
     // Show the offline instructions
     if (value == 'bank') {
-        document.querySelector('#bank-instructions').classList.remove('d-none');
-        document.querySelector('#bank-instructions').classList.add('d-block');
+        $('#bank-instructions').removeClass('d-none').addClass('d-block');
     }
     // Hide the offline instructions
     else {
-        if (document.querySelector('#bank-instructions')) {
-            document.querySelector('#bank-instructions').classList.add('d-none');
-            document.querySelector('#bank-instructions').classList.remove('d-block');
+        if ($('#bank-instructions')) {
+            $('#bank-instructions').addClass('d-none').removeClass('d-block');
         }
     }
 
     if (value == 'cryptocom' || value == 'coinbase' || value == 'bank') {
-        document.querySelectorAll('.checkout-subscription').forEach(function (element) {
-            element.classList.remove('d-block');
-        });
-
-        document.querySelectorAll('.checkout-subscription').forEach(function (element) {
-            element.classList.add('d-none');
-        });
-
-        document.querySelectorAll('.checkout-one-time').forEach(function (element) {
-            element.classList.add('d-block');
-        });
-
-        document.querySelectorAll('.checkout-one-time').forEach(function (element) {
-            element.classList.remove('d-none');
-        });
+        $('.checkout-subscription').removeClass('d-block').addClass('d-none');
+        $('.checkout-one-time').addClass('d-block').removeClass('d-none');
     } else {
-        document.querySelectorAll('.checkout-subscription').forEach(function (element) {
-            element.classList.remove('d-none');
-        });
-
-        document.querySelectorAll('.checkout-subscription').forEach(function (element) {
-            element.classList.add('d-block');
-        });
-
-        document.querySelectorAll('.checkout-one-time').forEach(function (element) {
-            element.classList.add('d-none');
-        });
-
-        document.querySelectorAll('.checkout-one-time').forEach(function (element) {
-            element.classList.remove('d-block');
-        });
+        $('.checkout-subscription').removeClass('d-none').addClass('d-block');
+        $('.checkout-one-time').addClass('d-none').removeClass('d-block');
     }
-}
+};
 console.log('loaded-2')
 // Payment form
 if (document.querySelector('#form-payment')) {
     let url = new URL(window.location.href);
 
-    document.querySelectorAll('[name="interval"]').forEach(function (element) {
-        if (element.checked) {
-            updateSummary(element.value);
+    // Loop through all elements with the name "interval"
+    $('[name="interval"]').each(function() {
+        var element = $(this);
+
+        // Check if the element is checked initially
+        if (element.prop('checked')) {
+            updateSummary(element.val());
         }
 
         // Listen to interval changes
-        element.addEventListener('change', function () {
+        element.on('change', function() {
             // Update the URL address
-            url.searchParams.set('interval', element.value);
+            url.searchParams.set('interval', element.val());
 
             history.pushState(null, null, url.href);
 
-            updateSummary(element.value);
+            updateSummary(element.val());
         });
     });
 
-    document.querySelectorAll('[name="payment_processor"]').forEach(function (element) {
-        if (element.checked) {
-            updateBillingType(element.value);
+
+    // Loop through all elements with the name "payment_processor"
+    $('[name="payment_processor"]').each(function() {
+        var element = $(this);
+
+        // Check if the element is checked initially
+        if (element.prop('checked')) {
+            updateBillingType(element.val());
         }
 
         // Listen to payment processor changes
-        element.addEventListener('change', function () {
+        element.on('change', function() {
             // Update the URL address
-            url.searchParams.set('payment', element.value);
+            url.searchParams.set('payment', element.val());
 
             history.pushState(null, null, url.href);
 
-            updateBillingType(element.value);
+            updateBillingType(element.val());
         });
     });
 
+
     // If the Add a coupon button is clicked
-    document.querySelector('#coupon') && document.querySelector('#coupon').addEventListener('click', function (e) {
+    $('#coupon').click(function (e) {
         e.preventDefault();
 
         // Hide the link
-        this.classList.add('d-none');
+        $(this).addClass('d-none');
 
         // Show the coupon input
-        document.querySelector('#coupon-input').classList.remove('d-none');
+        $('#coupon-input').removeClass('d-none');
 
         // Enable the coupon input
-        document.querySelector('input[name="coupon"]').removeAttribute('disabled');
+        $('input[name="coupon"]').removeAttr('disabled');
     });
+
 
     // If the Cancel coupon button is clicked
-    document.querySelector('#coupon-cancel') && document.querySelector('#coupon-cancel').addEventListener('click', function (e) {
+    $('#coupon-cancel').click(function (e) {
         e.preventDefault();
 
-        document.querySelector('#coupon').classList.remove('d-none');
+        $('#coupon').removeClass('d-none');
 
         // Hide the coupon input
-        document.querySelector('#coupon-input').classList.add('d-none');
+        $('#coupon-input').addClass('d-none');
 
         // Disable the coupon input
-        document.querySelector('input[name="coupon"]').setAttribute('disabled', 'disabled');
+        $('input[name="coupon"]').attr('disabled', 'disabled');
     });
 
-    // If the country value changes
-    document.querySelector('#i-country').addEventListener('change', function () {
+// If the country value changes
+    $('#i-country').change(function () {
         // Remove the submit button
-        document.querySelector('#form-payment').submit.remove();
+        $('#form-payment').find('[type="submit"]').remove();
 
         // Submit the form
-        document.querySelector('#form-payment').submit();
+        $('#form-payment').submit();
     });
+
 }
 
 // Coupon form
-if (document.querySelector('#form-coupon')) {
-    document.querySelector('#i-type').addEventListener('change', function () {
-        if (document.querySelector('#i-type').value == 1) {
-            document.querySelector('#form-group-redeemable').classList.remove('d-none');
-            document.querySelector('#form-group-discount').classList.add('d-none');
-            document.querySelector('#i-percentage').setAttribute('disabled', 'disabled');
+if ($('#form-coupon').length) {
+    $('#i-type').change(function () {
+        if ($('#i-type').val() == 1) {
+            $('#form-group-redeemable').removeClass('d-none');
+            $('#form-group-discount').addClass('d-none');
+            $('#i-percentage').attr('disabled', 'disabled');
         } else {
-            document.querySelector('#form-group-redeemable').classList.add('d-none');
-            document.querySelector('#form-group-discount').classList.remove('d-none');
-            document.querySelector('#i-percentage').removeAttribute('disabled');
+            $('#form-group-redeemable').addClass('d-none');
+            $('#form-group-discount').removeClass('d-none');
+            $('#i-percentage').removeAttr('disabled');
         }
     });
 }
 
+
 // Table filters
-document.querySelector('#search-filters') && document.querySelector('#search-filters').addEventListener('click', function (e) {
+$('#search-filters').click(function (e) {
     e.stopPropagation();
-})
+});
+
 
 // Clipboard
 new ClipboardJS('[data-clipboard="true"]');
+$('[data-clipboard-copy]').click(function (e) {
+    e.preventDefault();
 
-document.querySelectorAll('[data-clipboard-copy]').forEach(function (element) {
-    element.addEventListener('click', function (e) {
-        e.preventDefault();
+    try {
+        var value = $(this).data('clipboard-copy');
+        var tempInput = $('<input>');
 
-        try {
-            let value = this.dataset.clipboardCopy;
-            let tempInput = document.createElement('input');
+        $('body').append(tempInput);
 
-            document.body.append(tempInput);
+        // Set the input's value to the url to be copied
+        tempInput.val(value);
 
-            // Set the input's value to the url to be copied
-            tempInput.value = value;
+        // Select the input's value to be copied
+        tempInput.select();
 
-            // Select the input's value to be copied
-            tempInput.select();
+        // Copy the url
+        document.execCommand('copy');
 
-            // Copy the url
-            document.execCommand("copy");
-
-            // Remove the temporary input
-            tempInput.remove();
-        } catch (e) {}
-    });
+        // Remove the temporary input
+        tempInput.remove();
+    } catch (e) {}
 });
+
 
 // Tooltip
 // jQuery('[data-tooltip="true"]').tooltip({animation: true, trigger: 'hover', boundary: 'window'});
@@ -236,263 +216,249 @@ document.querySelectorAll('[data-clipboard-copy]').forEach(function (element) {
 // Copy tooltip
 // jQuery('[data-tooltip-copy="true"]').tooltip({animation: true});
 
-document.querySelectorAll('[data-tooltip-copy="true"]').forEach(function (element) {
-    element.addEventListener('click', function (e) {
-        // Update the tooltip
-        // jQuery(this).tooltip('hide').attr('data-original-title', this.dataset.textCopied).tooltip('show');
-    });
-
-    element.addEventListener('mouseleave', function () {
-        this.setAttribute('data-original-title', this.dataset.textCopy);
-    });
+$('[data-tooltip-copy="true"]').click(function (e) {
+    // Update the tooltip
+    // $(this).tooltip('hide').attr('data-original-title', $(this).data('text-copied')).tooltip('show');
 });
+
+$('[data-tooltip-copy="true"]').mouseleave(function () {
+    $(this).attr('data-original-title', $(this).data('text-copy'));
+});
+
 
 // Slide menu
-document.querySelectorAll('.slide-menu-toggle').forEach(function (element) {
-    element.addEventListener('click', function () {
-        document.querySelector('#slide-menu').classList.toggle('active');
-    });
+$('.slide-menu-toggle').click(function () {
+    $('#slide-menu').toggleClass('active');
 });
+
 
 // Toggle password visibility
-document.querySelectorAll('[data-password]').forEach(function (element) {
-    element.addEventListener('click', function (e) {
-        let passwordInput = document.querySelector('#' + this.dataset.password);
+$('[data-password]').click(function (e) {
+    var passwordInput = $('#' + $(this).data('password'));
 
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            // jQuery(this).tooltip('hide').attr('data-original-title', this.dataset.passwordHide).tooltip('show');
-        } else {
-            passwordInput.type = 'password';
-            // jQuery(this).tooltip('hide').attr('data-original-title', this.dataset.passwordShow).tooltip('show');
-        }
-    });
+    if (passwordInput.attr('type') === 'password') {
+        passwordInput.attr('type', 'text');
+        // $(this).tooltip('hide').attr('data-original-title', $(this).data('passwordHide')).tooltip('show');
+    } else {
+        passwordInput.attr('type', 'password');
+        // $(this).tooltip('hide').attr('data-original-title', $(this).data('passwordShow')).tooltip('show');
+    }
 });
+
 
 /**
  * Handle the confirmation modal event.
  *
  * @param element
  */
-let confirmationModalEvent = (element) => {
-    element.addEventListener('click', function () {
+function confirmationModalEvent(element) {
+    $(element).click(function () {
         // Unset attributes if previously set
-        document.querySelector('#modal-button').removeAttribute('name');
-        document.querySelector('#modal-button').removeAttribute('value');
+        $('#modal-button').removeAttr('name');
+        $('#modal-button').removeAttr('value');
 
         // Set the attributes
-        if (this.dataset.buttonName) {
-            document.querySelector('#modal-button').setAttribute('name', this.dataset.buttonName);
+        if ($(this).data('buttonName')) {
+            $('#modal-button').attr('name', $(this).data('buttonName'));
         }
-        if (this.dataset.buttonValue) {
-            document.querySelector('#modal-button').setAttribute('value', this.dataset.buttonValue);
+        if ($(this).data('buttonValue')) {
+            $('#modal-button').attr('value', $(this).data('buttonValue'));
         }
-        document.querySelector('#modal-label').textContent = this.dataset.title
-        document.querySelector('#modal-button').textContent = this.dataset.title;
-        document.querySelector('#modal-button').setAttribute('class', this.dataset.button);
-        document.querySelector('#modal-text').textContent = this.dataset.text;
-        document.querySelector('#modal-sub-text').textContent = this.dataset.subText;
-        document.querySelector('#modal form').setAttribute('action', this.dataset.action);
+        $('#modal-label').text($(this).data('title'));
+        $('#modal-button').text($(this).data('title'));
+        $('#modal-button').attr('class', $(this).data('button'));
+        $('#modal-text').text($(this).data('text'));
+        $('#modal-sub-text').text($(this).data('subText'));
+        $('#modal form').attr('action', $(this).data('action'));
     });
 }
 
-document.querySelectorAll('[data-target="#modal"]').forEach(function (element) {
-    confirmationModalEvent(element);
+$('[data-target="#modal"]').each(function () {
+    confirmationModalEvent(this);
 });
 
 // Button loader
-document.querySelectorAll('[data-button-loader]').forEach(function (element) {
-    element.addEventListener('click', function (e) {
-        // Stop the button from being re-submitted while loading
-        if (this.classList.contains('disabled')) {
-            e.preventDefault();
-        }
-        this.classList.add('disabled');
-        this.querySelector('.spinner-border').classList.remove('d-none');
-        this.querySelector('.spinner-text').classList.add('invisible');
-    });
+$('[data-button-loader]').click(function (e) {
+    // Stop the button from being re-submitted while loading
+    if ($(this).hasClass('disabled')) {
+        e.preventDefault();
+    }
+    $(this).addClass('disabled');
+    $(this).find('.spinner-border').removeClass('d-none');
+    $(this).find('.spinner-text').addClass('invisible');
 });
+
 
 /**
  * Restore a disabled button.
  */
-let restoreDisabledButton = (element) => {
-    element.classList.remove('disabled');
-    element.querySelector('.spinner-border').classList.add('d-none');
-    element.querySelector('.spinner-text').classList.remove('invisible');
+function restoreDisabledButton(element) {
+    $(element).removeClass('disabled');
+    $(element).find('.spinner-border').addClass('d-none');
+    $(element).find('.spinner-text').removeClass('invisible');
 }
 
+
 // AI form
-if (document.querySelector('#ai-form')) {
+if ($('#ai-form').length) {
     // If the show AI form button is present
-    document.querySelector('#ai-form-show-button') && document.querySelector('#ai-form-show-button').addEventListener('click', function () {
+    $('#ai-form-show-button').on('click', function () {
         // Hide the show AI form button
-        document.querySelector('#ai-form-show-button').classList.add('d-none');
+        $('#ai-form-show-button').addClass('d-none');
 
         // Show the AI form
-        document.querySelector('#ai-form') && document.querySelector('#ai-form').classList.remove('d-none');
+        $('#ai-form').removeClass('d-none');
 
         /*autoResizeTextarea();*/
     });
 
-    document.querySelectorAll('[data-button-loader]').forEach(function (element) {
-        element.addEventListener('click', function () {
-            // If any results are present, hide them
-            document.querySelector('#ai-results') && document.querySelector('#ai-results').classList.add('d-none');
+    $('[data-button-loader]').on('click', function () {
+        // If any results are present, hide them
+        $('#ai-results').addClass('d-none');
 
-            // Show the placeholder container
-            document.querySelector('#ai-placeholder-results').classList.remove('d-none');
-            document.querySelector('#ai-placeholder-results').classList.add('d-flex');
+        // Show the placeholder container
+        $('#ai-placeholder-results').removeClass('d-none');
+        $('#ai-placeholder-results').addClass('d-flex');
 
-            // Hide the default placeholder text
-            document.querySelector('#ai-placeholder-text-start').classList.add('d-none');
+        // Hide the default placeholder text
+        $('#ai-placeholder-text-start').addClass('d-none');
 
-            // Show the in-progress placeholder text
-            document.querySelector('#ai-placeholder-text-progress').classList.remove('d-none');
-            document.querySelector('#ai-placeholder-text-progress').classList.add('d-flex');
-        });
+        // Show the in-progress placeholder text
+        $('#ai-placeholder-text-progress').removeClass('d-none');
+        $('#ai-placeholder-text-progress').addClass('d-flex');
     });
 }
 
 // Templates filters
-if (document.querySelector('#template-filters')) {
-    let filterTemplates = (search, category) => {
-        let hideCategoryLabels = () => {
-            document.querySelectorAll('[data-category-label]').forEach(function (element) {
-                element.classList.add('d-none');
-            });
-        }
+$(document).ready(function () {
+    if ($('#template-filters').length) {
+        let filterTemplates = (search, category) => {
+            let hideCategoryLabels = () => {
+                $('[data-category-label]').addClass('d-none');
+            }
 
-        let hideTemplates = () => {
-            document.querySelectorAll('[data-templatex]').forEach(function (element) {
-                element.classList.add('d-none');
-            });
-        }
+            let hideTemplates = () => {
+                $('[data-templatex]').addClass('d-none');
+            }
 
-        let showCategoryLabels = () => {
-            document.querySelectorAll('[data-category-label]').forEach(function (element) {
-                element.classList.remove('d-none');
-            });
-        }
+            let showCategoryLabels = () => {
+                $('[data-category-label]').removeClass('d-none');
+            }
 
-        let showTemplates = () => {
-            document.querySelectorAll('[data-templatex]').forEach(function (element) {
-                element.classList.remove('d-none');
-            });
-        }
+            let showTemplates = () => {
+                $('[data-templatex]').removeClass('d-none');
+            }
 
-        let showCategoryLabel = (name) => {
-            document.querySelector('[data-category-label="' + name + '"]').classList.remove('d-none');
-        }
+            let showCategoryLabel = (name) => {
+                $('[data-category-label="' + name + '"]').removeClass('d-none');
+            }
 
-        let showTemplate = (name) => {
-            document.querySelector('[data-templatex="' + name + '"]').classList.remove('d-none');
-        }
+            let showTemplate = (name) => {
+                $('[data-templatex="' + name + '"]').removeClass('d-none');
+            }
 
-        let templates = category ? document.querySelectorAll('[data-template-category="' + category + '"]') : document.querySelectorAll('[data-templatex]');
+            let templates = category ? $('[data-template-category="' + category + '"]') : $('[data-templatex]');
 
-        if (!search && !category) {
-            showCategoryLabels();
-            showTemplates();
-        } else {
-            hideCategoryLabels();
-            hideTemplates();
+            if (!search && !category) {
+                showCategoryLabels();
+                showTemplates();
+            } else {
+                hideCategoryLabels();
+                hideTemplates();
 
-            templates.forEach(function (item) {
-                if (search) {
-                    if (item.dataset.templatex.toLowerCase().includes(search.toLowerCase())) {
-                        showTemplate(item.dataset.templatex);
-                        showCategoryLabel(item.dataset.templateCategory);
+                templates.each(function () {
+                    if (search) {
+                        if ($(this).data('templatex').toLowerCase().includes(search.toLowerCase())) {
+                            showTemplate($(this).data('templatex'));
+                            showCategoryLabel($(this).data('template-category'));
+                        }
+                    } else {
+                        showTemplate($(this).data('templatex'));
+                        showCategoryLabel($(this).data('template-category'));
                     }
+                });
+            }
+        }
+
+        $('[data-filter-category]').on('click', function (e) {
+            e.preventDefault();
+
+            // Remove the previous active button state and category
+            $('[data-filter-category]').each(function () {
+                $(this).removeClass($(this).data('text-color-active') + ' ' + $(this).data('text-color-inactive'))
+                    .addClass($(this).data('text-color-inactive'))
+                    .removeAttr('data-filter-category-active')
+                    .attr('href', '#');
+            });
+
+            // Set the active button state and category
+            $(this).removeClass($(this).data('text-color-inactive'))
+                .addClass($(this).data('text-color-active'))
+                .attr('data-filter-category-active', $(this).data('filter-category'))
+                .removeAttr('href');
+
+            // Call the filterTemplates function with the appropriate parameters
+            filterTemplates($('#i-search').val(), $('[data-filter-category-active]').data('filter-category-active'));
+        });
+
+        if ($('#form-templates-search').length) {
+            $('#i-search').on('keyup', function () {
+                // If the search input has any value
+                if ($('#i-search').val().length > 0) {
+                    filterTemplates($('#i-search').val(), $('[data-filter-category-active]').data('filter-category-active'));
+
+                    // Show the clear button
+                    $('#clear-button-container').removeClass('d-none');
+                    $('#i-search').after($('#clear-button-container'));
                 } else {
-                    showTemplate(item.dataset.templatex);
-                    showCategoryLabel(item.dataset.templateCategory);
+                    filterTemplates('', $('[data-filter-category-active]').data('filter-category-active'));
+
+                    // Hide the clear button
+                    $('#form-templates-search').append($('#clear-button-container'));
+                    $('#clear-button-container').addClass('d-none');
                 }
             });
-        }
-    }
 
-    document.querySelectorAll('[data-filter-category]').forEach(function (button) {
-        // Listen for category button click
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelectorAll('[data-filter-category]').forEach(function (element) {
-                // Remove the previous active button state
-                element.classList.remove(element.dataset.textColorActive, element.dataset.textColorInactive);
-                element.classList.add(element.dataset.textColorInactive);
+            $('#b-clear').on('click', function () {
+                // Empty the search input
+                $('#i-search').val('');
 
-                // Remove the previous active category
-                element.removeAttribute('data-filter-category-active');
-                element.setAttribute('href', '#');
-            });
-            // Set the active button state
-            this.classList.remove(this.dataset.textColorInactive);
-            this.classList.add(this.dataset.textColorActive);
+                // Focus the search input
+                $('#i-search').focus();
 
-            // Set the active category
-            this.setAttribute('data-filter-category-active', this.dataset.filterCategory);
-            this.removeAttribute('href');
-
-            filterTemplates(document.querySelector('#i-search').value, document.querySelector('[data-filter-category-active]').dataset.filterCategoryActive);
-        });
-    });
-
-    if (document.querySelector('#form-templates-search')) {
-        document.querySelector('#i-search').addEventListener('keyup', function () {
-            // If the search input has any value
-
-            if (document.querySelector('#i-search').value.length > 0) {
-                filterTemplates(document.querySelector('#i-search').value, document.querySelector('[data-filter-category-active]').dataset.filterCategoryActive);
-
-                // Show the clear button
-                document.querySelector('#clear-button-container').classList.remove('d-none');
-                document.querySelector('#i-search').after(document.querySelector('#clear-button-container'));
-            } else {
-                filterTemplates('', document.querySelector('[data-filter-category-active]').dataset.filterCategoryActive);
+                // Move the clear button outside the search input container
+                $('#form-templates-search').append($('#clear-button-container'));
 
                 // Hide the clear button
-                document.querySelector('#form-templates-search').append(document.querySelector('#clear-button-container'));
-                document.querySelector('#clear-button-container').classList.add('d-none');
-            }
-        });
+                $('#clear-button-container').addClass('d-none');
 
-        document.querySelector('#b-clear').addEventListener('click', function () {
-            // Empty the search input
-            document.querySelector('#i-search').value = '';
-
-            // Focus the search input
-            document.querySelector('#i-search').focus();
-
-            // Move the clear button outside the search input container
-            document.querySelector('#form-templates-search').append(document.querySelector('#clear-button-container'));
-
-            // Hide the clear button
-            document.querySelector('#clear-button-container').classList.add('d-none');
-
-            // Show the filtered items
-            filterTemplates('', document.querySelector('[data-filter-category-active]').dataset.filterCategoryActive);
-        });
+                // Show the filtered items
+                filterTemplates('', $('[data-filter-category-active]').data('filter-category-active'));
+            });
+        }
     }
-}
+});
+
 
 // Auto resize textarea
 let autoResizeTextarea = () => {
-    document.querySelectorAll('[data-auto-resize-textarea]').forEach(function (element) {
-        element.style.boxSizing = 'border-box';
-        let offset = element.offsetHeight - element.clientHeight;
+    $('[data-auto-resize-textarea]').each(function () {
+        $(this).css('box-sizing', 'border-box');
+        let offset = this.offsetHeight - this.clientHeight;
 
         // Resize the textarea
-        element.addEventListener('input', function (event) {
-            event.target.style.height = 'auto';
-            event.target.style.height = event.target.scrollHeight + offset + 'px';
+        $(this).on('input', function (event) {
+            $(event.target).css('height', 'auto');
+            $(event.target).css('height', event.target.scrollHeight + offset + 'px');
         });
 
         // Size the textarea
-        element.style.height = element.scrollHeight + offset + 'px';
+        $(this).css('height', this.scrollHeight + offset + 'px');
 
-        element.removeAttribute('data-autoresize');
+        $(this).removeAttr('data-autoresize');
     });
 };
+
 
 autoResizeTextarea();
 
@@ -501,11 +467,11 @@ autoResizeTextarea();
  */
 let loadEditor = () => {
     // Get all the text editors
-    document.querySelectorAll('[data-text-editor]').forEach(function (element) {
-        let id = element.dataset.textEditor;
-        let readOnly = element.dataset.textEditorReadonly === 'true';
+    $('[data-text-editor]').each(function () {
+        let id = $(this).data('text-editor');
+        let readOnly = $(this).data('text-editor-readonly') === 'true';
 
-        let container = document.getElementById('result-' + id);
+        let container = $('#result-' + id)[0]; // Use [0] to access the DOM element
         let options = {
             modules: {
                 toolbar: '#toolbar-' + id
@@ -517,10 +483,11 @@ let loadEditor = () => {
         let editor = new Quill(container, options);
 
         editor.on('text-change', function () {
-            document.querySelector('#i-result-' + id) ? document.querySelector('#i-result-' + id).value = editor.root.innerHTML.trim() : '';
+            $('#i-result-' + id).val(editor.root.innerHTML.trim());
         });
     });
-}
+};
+
 
 loadEditor();
 
@@ -529,36 +496,36 @@ if (document.querySelector('#form-chat')) {
      * Scroll the chat window to the end of the conversation.
      */
     let scrollChatWindowToEnd = () => {
-        document.querySelector('#chat-container').scrollTop = document.querySelector('#chat-container').scrollHeight;
+        $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
     }
 
     /**
      * Focus the chat message input.
      */
     let focusChatMessageInput = () => {
-        document.querySelector('#i-message').focus();
+        $('#i-message').focus();
     }
 
     /**
      * Clear the chat message input.
      */
     let clearChatMessageInput = () => {
-        document.querySelector('#i-message').value = '';
-        document.querySelector('#i-message').removeAttribute('style');
+        $('#i-message').val('');
+        $('#i-message').removeAttr('style');
     }
 
     /**
      * Disable the chat message input.
      */
     let disableChatMessageInput = () => {
-        document.querySelector('#i-message').setAttribute('disabled', 'disabled');
+        $('#i-message').attr('disabled', 'disabled');
     }
 
     /**
      * Enable the chat message input.
      */
     let enableChatMessageInput = () => {
-        document.querySelector('#i-message').removeAttribute('disabled');
+        $('#i-message').removeAttr('disabled');
     }
 
     /**
@@ -566,47 +533,46 @@ if (document.querySelector('#form-chat')) {
      * @param message
      */
     let addChatMessageInputError = (message) => {
-        document.querySelector('#i-message').classList.add('is-invalid');
-        document.querySelector('.invalid-feedback strong').innerText = message;
+        $('#i-message').addClass('is-invalid');
+        $('.invalid-feedback strong').text(message);
     }
 
     /**
      * Clear the chat message input error.
      */
     let clearChatMessageInputError = () => {
-        document.querySelector('#i-message').classList.remove('is-invalid');
+        $('#i-message').removeClass('is-invalid');
     }
 
     /**
      * Restore a disabled button.
      */
     let restoreDisabledButton = (element) => {
-        element.classList.remove('disabled');
-        element.querySelector('.spinner-border').classList.add('d-none');
-        element.querySelector('.spinner-text').classList.remove('invisible');
+        $(element).removeClass('disabled');
+        $(element).find('.spinner-border').addClass('d-none');
+        $(element).find('.spinner-text').removeClass('invisible');
     }
 
-    // Slight delay needed to prevent incomplete scrolling when elements are still being rendered
+// Slight delay needed to prevent incomplete scrolling when elements are still being rendered
     setTimeout(function () {
         scrollChatWindowToEnd();
     }, 100);
 
     focusChatMessageInput();
 
-    document.querySelector('#i-message').addEventListener('keypress', function (e) {
+    $('#i-message').on('keypress', function (e) {
         // If the user presses the Enter key without holding the Shift key
         if (e.which === 13 && !e.shiftKey) {
             e.preventDefault();
-
-            document.querySelector('#form-chat button[name="submit"]').click();
+            $('#form-chat button[name="submit"]').click();
         }
     });
 
-    document.querySelector('#form-chat').addEventListener('submit', function (e) {
+    $('#form-chat').on('submit', function (e) {
         e.preventDefault();
-
         chatMessage();
     });
+
 
     /**
      * Handle the AI Message.
@@ -615,23 +581,23 @@ if (document.querySelector('#form-chat')) {
         clearChatMessageInputError();
 
         // If there's no chat message being sent
-        if (!document.querySelector('#i-message').value) {
+        if (!$('#i-message').val()) {
             focusChatMessageInput();
-            restoreDisabledButton(document.querySelector('#form-chat button[type="submit"]'));
+            restoreDisabledButton($('#form-chat button[type="submit"]'));
 
             return;
         }
 
         // Get the chat form
-        const chatForm = new FormData(document.querySelector('#form-chat'));
+        const chatForm = new FormData($('#form-chat')[0]);
 
         disableChatMessageInput();
 
         chatForm.set('role', 'user');
-        let userRequestPromise = fetch(document.querySelector('#form-chat').getAttribute('action'), {
+        let userRequestPromise = fetch($('#form-chat').attr('action'), {
             method: 'post',
             headers: {
-                "Accept" : "application/json, text/javascript; charset=utf-8",
+                "Accept": "application/json, text/javascript; charset=utf-8",
                 "Content-Type": "application/json, text/javascript; charset=utf-8"
             },
             body: JSON.stringify(Object.fromEntries(chatForm))
@@ -643,29 +609,26 @@ if (document.querySelector('#form-chat')) {
                     addChatMessageInputError(response.errors.message[0]);
 
                     enableChatMessageInput();
-                    restoreDisabledButton(document.querySelector('#form-chat button[type="submit"]'));
+                    restoreDisabledButton($('#form-chat button[type="submit"]'));
 
                     return false;
                 }
 
                 // Add the response to the chat messages list
-                document.querySelector('#chat-messages').innerHTML += response.message;
+                $('#chat-messages').append(response.message);
 
                 scrollChatWindowToEnd();
 
                 // Rebind the modal event
-                document.querySelectorAll('#chat-messages a[data-toggle="modal"]').forEach(function (element) {
+                $('#chat-messages a[data-toggle="modal"]').each(function (index, element) {
                     confirmationModalEvent(element);
                 });
 
-                // Rebind the tooltip event
-                // jQuery('#chat-messages [data-tooltip="true"]').tooltip({animation: true, trigger: 'hover', boundary: 'window'});
-
                 chatForm.set('role', 'assistant');
-                let assistantRequestPromise = fetch(document.querySelector('#form-chat').getAttribute('action'), {
+                let assistantRequestPromise = fetch($('#form-chat').attr('action'), {
                     method: 'post',
                     headers: {
-                        "Accept" : "application/json, text/javascript; charset=utf-8",
+                        "Accept": "application/json, text/javascript; charset=utf-8",
                         "Content-Type": "application/json, text/javascript; charset=utf-8"
                     },
                     body: JSON.stringify(Object.fromEntries(chatForm))
@@ -677,27 +640,24 @@ if (document.querySelector('#form-chat')) {
                             addChatMessageInputError(response.errors.message[0]);
 
                             enableChatMessageInput();
-                            restoreDisabledButton(document.querySelector('#form-chat button[type="submit"]'));
+                            restoreDisabledButton($('#form-chat button[type="submit"]'));
 
                             return false;
                         }
 
                         // Add the response to the chat messages list
-                        document.querySelector('#chat-messages').innerHTML += response.message;
+                        $('#chat-messages').append(response.message);
 
                         scrollChatWindowToEnd();
                         focusChatMessageInput();
                         clearChatMessageInput();
                         enableChatMessageInput();
-                        restoreDisabledButton(document.querySelector('#form-chat button[type="submit"]'));
+                        restoreDisabledButton($('#form-chat button[type="submit"]'));
 
                         // Rebind the modal event
-                        document.querySelectorAll('#chat-messages a[data-toggle="modal"]').forEach(function (element) {
+                        $('#chat-messages a[data-toggle="modal"]').each(function (index, element) {
                             confirmationModalEvent(element);
                         });
-
-                        // Rebind the tooltip event
-                        // jQuery('#chat-messages [data-tooltip="true"]').tooltip({animation: true, trigger: 'hover', boundary: 'window'});
                     })
                     .catch(err => {
                         console.log(err);
@@ -705,7 +665,7 @@ if (document.querySelector('#form-chat')) {
                         focusChatMessageInput();
                         clearChatMessageInput();
                         enableChatMessageInput();
-                        restoreDisabledButton(document.querySelector('#form-chat button[type="submit"]'));
+                        restoreDisabledButton($('#form-chat button[type="submit"]'));
                     });
             })
             .catch(err => {
@@ -714,9 +674,10 @@ if (document.querySelector('#form-chat')) {
                 focusChatMessageInput();
                 clearChatMessageInput();
                 enableChatMessageInput();
-                restoreDisabledButton(document.querySelector('#form-chat button[type="submit"]'));
+                restoreDisabledButton($('#form-chat button[type="submit"]'));
             });
     }
+
 }
 
 /**
@@ -730,17 +691,18 @@ let getCookie = (name) => {
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
 
-    for(var i = 0; i <ca.length; i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while(c.charAt(0) == ' ') {
+        while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
-        if(c.indexOf(name) == 0) {
+        if (c.indexOf(name) == 0) {
             return c.substring(name.length, c.length);
         }
     }
     return '';
 };
+
 
 /**
  * Set a cookie.
@@ -751,5 +713,5 @@ let getCookie = (name) => {
  * @param   path
  */
 let setCookie = (name, value, expire, path) => {
-    document.cookie = name + "=" + value + ";expires=" + (new Date(expire).toUTCString()) + ";path=" + path;
+    document.cookie = name + "=" + value + "; expires=" + (new Date(expire).toUTCString()) + "; path=" + path;
 };

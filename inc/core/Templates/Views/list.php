@@ -44,7 +44,7 @@
                 <a href="#"
                    class="text-truncate text-decoration-none text-primary d-flex align-items-center justify-content-lg-center font-weight-medium py-3 px-3 cursor-pointer w-100"
                    data-filter-category="" data-text-color-active="text-primary"
-                   data-text-color-inactive="text-secondary" data-filter-category-active="">
+                   data-text-color-inactive="text-secondary" data-filter-category-active>
                     <span class="text-truncate">All</span>
                     <span class="flex-shrink-0 badge badge-primary ml-2"><?= array_sum(array_column($categories, 'total')) ?></span>
                 </a>
@@ -72,7 +72,7 @@ $db = \Config\Database::connect();
 <div class="row m-n2" id="templates">
     <?php if (!empty($categories)) : ?>
         <?php foreach ($categories as $category): ?>
-            <div class="col-12 p-2 mt-3" data-category-label="content">
+            <div class="col-12 p-2 mt-3" data-category-label="<?= $category->id ?>">
                 <div class="badge badge-<?= categoryColor($category->id) ?>"><?= $category->name ?></div>
             </div>
             <?php
