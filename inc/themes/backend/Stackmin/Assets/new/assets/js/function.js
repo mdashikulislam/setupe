@@ -1,9 +1,9 @@
 
 
 // Cookie law banner
-document.querySelector('#cookie-banner-dismiss') && document.querySelector('#cookie-banner-dismiss').addEventListener('click', function () {
+$('#cookie-banner-dismiss').on('click', function() {
     setCookie('cookie_law', 1, new Date().getTime() + (10 * 365 * 24 * 60 * 60 * 1000), '/');
-    document.querySelector('#cookie-banner').classList.add('d-none');
+    $('#cookie-banner').addClass('d-none');
 });
 
 
@@ -188,7 +188,6 @@ $('#search-filters').click(function (e) {
 new ClipboardJS('[data-clipboard="true"]');
 $('[data-clipboard-copy]').click(function (e) {
     e.preventDefault();
-
     try {
         var value = $(this).data('clipboard-copy');
         var tempInput = $('<input>');
@@ -216,13 +215,14 @@ $('[data-clipboard-copy]').click(function (e) {
 // Copy tooltip
 // jQuery('[data-tooltip-copy="true"]').tooltip({animation: true});
 
-$('[data-tooltip-copy="true"]').click(function (e) {
-    // Update the tooltip
-    // $(this).tooltip('hide').attr('data-original-title', $(this).data('text-copied')).tooltip('show');
-});
+// $('[data-tooltip-copy="true"]').click(function (e) {
+//     // Update the tooltip
+//     console.log('as')
+//      $(this).tooltip('hide').attr('data-bs-original-title', $(this).data('text-copied')).tooltip('show');
+// });
 
 $('[data-tooltip-copy="true"]').mouseleave(function () {
-    $(this).attr('data-original-title', $(this).data('text-copy'));
+    $(this).attr('data-bs-original-title', $(this).data('text-copy'));
 });
 
 
@@ -491,7 +491,7 @@ let loadEditor = () => {
 
 loadEditor();
 
-if (document.querySelector('#form-chat')) {
+if ($('#form-chat').length) {
     /**
      * Scroll the chat window to the end of the conversation.
      */

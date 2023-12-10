@@ -2924,37 +2924,24 @@ function encodeQuill($input)
 {
     return "<p>" . str_replace("\n\n", "<p><br></p>", $input) . "</p>";
 }
-function cleanHTML($html)
+function cleanHTML($dirtyHtml)
 {
-    // Define an array of allowed HTML tags and their attributes
-    $allowedTags = [
-        'a' => ['href', 'title'],
-        'p' => [],
-        'strong' => [],
-        'em' => [],
-        // Add more tags and attributes as needed
-    ];
+    // Remove potentially harmful tags and attributes
+    $cleanedHtml = strip_tags($dirtyHtml, '<a><p><strong><em>');
 
-    // Remove any HTML attributes not in the allowed list
-    $html = preg_replace_callback(
-        '/<[^>]*>/i',
-        function ($matches) use ($allowedTags) {
-            $tag = strtolower($matches[0]);
-            if (isset($allowedTags[$tag])) {
-                preg_match_all('/\s+([a-z_\-]+)(?:=([\'"])(.*?)\\2)?/i', $matches[0], $attributes);
-                $filteredAttributes = array_filter($attributes[1], function ($attr) use ($allowedTags, $tag) {
-                    return in_array(strtolower($attr), $allowedTags[$tag]);
-                });
-                $filteredAttributes = array_unique($filteredAttributes);
-                return "<$tag" . ($filteredAttributes ? ' ' . implode(' ', $filteredAttributes) : '') . '>';
-            }
-            return '';
-        },
-        $html
-    );
+    // Replace any potentially harmful attributes within allowed tags
+    $cleanedHtml = preg_replace('/<(a|p|strong|em)\s+(.*?)>/i', '<$1>', $cleanedHtml);
 
-    // Strip any remaining tags and their content
-    $html = strip_tags($html, '<' . implode('><', array_keys($allowedTags)) . '>');
+    return $cleanedHtml;
+}
+function getTemplateUrl($template){
+    if (empty($template)){
+        return false;
+    }
+    if (empty($template->slug)){
+        return base_url('templates/view/'.$template->id);
+    }else{
+        return base_url('templates/view/'.$template->slug);
+    }
 
-    return $html;
 }
