@@ -38,7 +38,7 @@
                             <tr>
                                 <td>
                                     <div class="desc">
-                                        <a href="" class="text-truncate" style=""><?= $chat->name ?></a>
+                                        <a href="<?php echo get_module_url('/view/'.$chat->id)?>" class="text-truncate" style=""><?= $chat->name ?></a>
                                         <p class="m-0"></p>
                                     </div>
                                 </td>
