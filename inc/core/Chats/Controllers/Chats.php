@@ -47,13 +47,10 @@ class Chats extends \CodeIgniter\Controller
             "title" => $this->config['menu']['sub_menu']['name'],
             "desc" => $this->config['desc'],
         ];
-
+        $user = get_current_user_info();
         $chat = $this->db->table('chats')->where('id',$id)->get()->getRow();
-        $messages = $this->db->table('messages')->where('chat_id',$chat->id)->orderBy('id','DESC')->get()->getResult();
-        $data['content'] = view('Core\Chats\Views\messages', ['chat'=>$chat,'messages'=>$messages]);
+        $messages = $this->db->table('messages')->where('chat_id',$chat->id)->orderBy('id','ASC')->get()->getResult();
+        $data['content'] = view('Core\Chats\Views\messages', ['chat'=>$chat,'messages'=>$messages,'user'=>$user]);
         return view('Core\Chats\Views\index', $data);
-
     }
-
-
 }
