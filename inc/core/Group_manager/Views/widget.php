@@ -1,4 +1,4 @@
-<div class="sp-menu-dropdown dropdown dropdown-hide-arrow dropdown-hide border-start" data-dropdown-spacing="0">
+<div class="d-flex sp-menu-dropdown dropdown dropdown-hide-arrow dropdown-hide border-start" data-dropdown-spacing="0">
     <a class="dropdown-toggle text-gray-800 btn" href="javascript:void(0);" data-bs-toggle="dropdown" >
         <i class="fad fa-users text-primary" ></i>
     </a>

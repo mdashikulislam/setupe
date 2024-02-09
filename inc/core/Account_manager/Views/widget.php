@@ -16,14 +16,18 @@
 			</div>
 
 		</div>
-
+        <style>
+            .input-group:focus-within .form-control, .input-group:focus-within .input-group-text{
+                border-color: transparent!important;
+            }
+        </style>
 		<div class="am-list-account border rounded bg-white check-wrap-all">
 			<div class="input-group input-group-solid rounded-0">
                 <input type="text" class="form-control search-input" data-search="search-accounts" placeholder="Search">
-                <span class="input-group-text m-r-1 border border-start border-top border-bottom border-gray-300"><i class="fad fa-search fs-18"></i></span>
-                <div class="input-group-append m-r-1 border border-start border-top border-bottom border-gray-300">
+                <span class="input-group-text m-r-1  "><i class="fad fa-search fs-18"></i></span>
+                <div class="input-group-append m-r-1 ">
                     <a class="btn border-start rounded-0">
-                        <div class="form-check p-l-0">
+                        <div class="form-check">
                             <input class="form-check-input check-box-all" type="checkbox" id="checkAll">
                             <label class="form-check-label" for="checkAll"></label> 
                         </div>
@@ -96,7 +100,7 @@
 			</div>
 			<div class="am-choice-footer border-top p-15">
 				<a href="<?php _ec( base_url("account_manager") )?>" class="btn btn-outline btn-outline-dashed btn-outline-primary btn-active-light-primary w-100">
-					<i class="fal fa-plus"></i> <?php _e("Connect a Profile")?>
+					<i class="fal fa-plus fa-fw"></i> <?php _e("Connect a Profile")?>
 				</a>
 			</div>
 

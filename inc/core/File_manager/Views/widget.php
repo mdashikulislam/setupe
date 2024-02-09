@@ -1,26 +1,50 @@
+<style>
+    .file-manager .card-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .file-manager .card-header h3{
+        margin: 0;
+    }
+    .file-manager .card-header .card-toolbar{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .file-manager .card-header .card-toolbar button{
+        padding-left: 5px!important;
+        padding-right: 5px!important;
+    }
+    .file-manager .card-header .card-toolbar a{
+        padding-left: 5px!important;
+        padding-right: 5px!important;
+    }
+</style>
+
 <div class="card border file-manager" data-select-multi="<?php _ec($select_multi)?>">
-	<div class="card-header p-r-20 p-l-20">
+	<div class="card-header" >
 		<h3 class="card-title"><?php _e("Media")?></h3>
-        <div class="card-toolbar">
+        <div class="card-toolbar" style="">
         	<button type="button" class="btn btn-color-gray-500 btn-active-color-primary p-0 fileinput-button">
                 <i class="far fa-desktop"></i>
                 <input id="fileupload" type="file" name="files[]" multiple="">
             </button>
             <?php if ( get_option("fm_google_dropbox_status", 0) && permission("file_manager_dropbox") ): ?>
-	            <a href="javascript:void(0);" class="btn btn-link btn-color-gray-500 btn-active-color-primary ms-2 text-muted dropbox-choose">
+	            <a href="javascript:void(0);" class="btn btn-link btn-color-gray-500 btn-active-color-primary p-0 text-muted dropbox-choose">
 	                <i class="fab fa-dropbox p-r-0"></i>
 	            </a>
 	            <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="<?php _ec( get_option("fm_dropbox_api_key", "") )?>"></script>
             <?php endif ?>
             <?php if ( get_option("fm_google_drive_status", 0) && permission("file_manager_google_drive") ): ?>
-	            <a href="javascript:void(0)" class="btn btn-link btn-color-gray-500 btn-active-color-primary ms-2 text-muted" onclick="handleAuthClick()">
+	            <a href="javascript:void(0)" class="btn btn-link btn-color-gray-500 btn-active-color-primary p-0 text-muted" onclick="handleAuthClick()">
 	                <i class="fab fa-google-drive p-r-0"></i>
 	            </a>
 	            <?php echo view_cell('\Core\File_manager\Controllers\File_manager::google_drive') ?>
 	        <?php endif ?>
 	        <?php if ( get_option("fm_google_onedrive_status", 0) && permission("file_manager_onedrive") ): ?>
-            <a href="javascript:void(0)" class="btn btn-link btn-color-gray-500 btn-active-color-primary ms-2 text-muted onedrive-choose" data-client-id="<?php _ec( get_option("fm_onedrive_api_key", "") )?>">
-                <i class="icon icon-onedrive fs-23 p-r-0"></i>
+            <a href="javascript:void(0)" class="btn btn-link btn-color-gray-500 btn-active-color-primary p-0 text-muted onedrive-choose" data-client-id="<?php _ec( get_option("fm_onedrive_api_key", "") )?>">
+                <i class="fas fa-clouds p-r-0"></i>
             </a>
             <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
             <?php endif ?>

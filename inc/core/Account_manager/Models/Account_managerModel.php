@@ -20,9 +20,8 @@ class Account_managerModel extends Model
         }else{
             $configs = get_blocks("block_accounts", false, false);
         }
-
+        
         $items = [];
-
         if( ! empty($configs) ){
             $items = $configs;
             if( count($items) >= 2 ){

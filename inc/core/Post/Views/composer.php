@@ -1,3 +1,17 @@
+<style>
+    .preview-tab .preview-menu li a{
+        border-color: transparent;
+    }
+    .preview-tab .preview-menu li a:focus{
+        border-color: transparent;
+    }
+    .preview-tab .preview-menu li a.active{
+        background-color: var(--sp-light) !important;
+    }
+    .preview-tab .preview-menu li a:hover{
+        background-color: var(--sp-light) !important;
+    }
+</style>
 <div class="p-25 container">
 	<div class="row">
 
@@ -34,7 +48,7 @@
 		<div class="post-tab post-content-tab col-lg-4 col-md-6 col-sm-12">
 			<div class="card border h-100 post-schedule wrap-caption">
 				<div class="card-header p-r-20 p-l-20">
-					<h3 class="card-title"><?php _e("New post")?></h3>
+					<h3 class="card-title m-0"><?php _e("New post")?></h3>
 			        <div class="card-toolbar">
 			        	<button type="button" class="btn btn-sm btn-light btn-preview d-lg-none d-md-none d-sm-block"><?php _e("Preview")?></button>
 			        </div>
@@ -274,17 +288,17 @@
 
 			<?php if ($preview): ?>
 			<div class="card border">
-				<div class="card-header p-r-20 p-l-20 m-auto w-100">
-					<h3 class="card-title text-center"><?php _e("Network Preview")?></h3>
+				<div class="card-header p-r-20 p-l-20 m-auto w-100" >
+					<h3 class="card-title text-left m-0"><?php _e("Network Preview")?></h3>
 					<div class="card-toolbar">
 						<div class="d-lg-none d-md-none d-sm-block d-xs-block d-block">
 			        		<button type="button" class="btn btn-sm btn-light-danger btn-close-preview w-35 h-35 b-r-40 d-flex justify-content-center align-items-center"><i class="fad fa-times pe-0"></i></button>
 						</div>
 			        </div>
 				</div>
-				<div class="card-header px-0 w-100">
+				<div class="card-header p-0 w-100">
 					<div class="nx-scroll no-update w-100">
-					    <ul class="preview-menu d-flex mb-0 <?php _ec( count($frame_posts) < 4?"justify-content-center":"" )?>">
+					    <ul class="preview-menu p-0 d-flex mb-0 <?php _ec( count($frame_posts) < 4?"justify-content-center":"" )?>">
 				        	<?php foreach ($frame_posts as $key => $value): ?>
 				        		<?php if ( isset( $value['data']['preview'] ) ): ?>
 					            <li class="item mb-0">

@@ -52,18 +52,62 @@
         var PATH = '<?php _ec(base_url() . "/")?>';
         var csrf = "<?php _ec(csrf_hash()) ?>";
     </script>
-
+    <style>
+        a i.fad{
+            margin-right: 10px!important;
+        }
+        button i.fad{
+            margin-right: 10px!important;
+        }
+        button i.fal{
+            margin-right: 10px!important;
+        }
+        .paginationjs .paginationjs-pages li:first-child>a{
+            border-radius: 50%;
+            font-size: 16px;
+        }
+        .paginationjs .paginationjs-pages li:last-child>a{
+            border-radius: 50%;
+            font-size: 16px;
+        }
+        .paginationjs .paginationjs-pages li{
+            border:none;
+        }
+        .paginationjs .paginationjs-pages ul{
+            display: flex;
+            gap:5px;
+        }
+        .paginationjs .paginationjs-pages li > a{
+            border-radius: 50%;
+            font-size: 16px;
+        }
+        .paginationjs .paginationjs-pages li.active > a{
+            background: #696cff;
+            border-color: #696cff;
+            line-height: 35px;
+        }
+    </style>
 </head>
 
 <body>
 
+<div class="loading" style="display: none;">
+    <div class="loading-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar  ">
     <div class="layout-container">
         <!-- Menu -->
         <?php _ec($this->include('Backend\Stackmin\Views\sidebar'), false) ?>
         <!-- / Menu -->
-
+        <?php
+            $user = get_current_user_info();
+        ?>
         <!-- Layout container -->
         <div class="layout-page">
             <!-- Navbar -->
@@ -179,7 +223,7 @@
                             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                data-bs-toggle="dropdown">
                                 <div class="avatar avatar-online">
-                                    <img src="assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle">
+                                    <img src="<?= @$user->avatar ?>" alt class="w-px-40 h-auto rounded-circle">
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -188,7 +232,7 @@
                                         <div class="d-flex">
                                             <div class="flex-shrink-0 me-3">
                                                 <div class="avatar avatar-online">
-                                                    <img src="assets/img/avatars/1.png" alt="" class="w-px-40 h-auto rounded-circle">
+                                                    <img src="<?= @$user->avatar ?>" alt="" class="w-px-40 h-auto rounded-circle">
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
@@ -264,8 +308,13 @@
             <!-- Content wrapper -->
             <div class="content-wrapper">
 
-                <div class="flex-grow-1 container-p-y container-xxl">
+                <div class="flex-grow-1 container-p-y container-xxl own-content">
                     <?php _ec($this->renderSection('content'), false) ?>
+                    <script>
+                        if($('.sub-sidebar').hasClass('sub-sidebar')){
+                            $('.own-content').css('display','flex')
+                        }
+                    </script>
                 </div>
                 <!-- / Content -->
 
@@ -347,6 +396,7 @@
         Core.ajax_pages();
     });
 </script>
+
 </body>
 
 </html>

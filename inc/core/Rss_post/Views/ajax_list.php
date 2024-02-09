@@ -17,11 +17,20 @@
 				}
 			}
 		?>
-		
+		<style>
+            .form-switch.form-check-solid .form-check-input{
+                width: 45.5px;
+                height: 31.5px;
+            }
+            /*.form-switch.form-check-solid .form-check-input{*/
+            /*    background: red!important;*/
+            /*}*/
+
+        </style>
 		<div class="col-md-4 col-sm-12 col-xs-4 mb-4 rss-item" data-id="<?php _e($value->ids)?>">
 		    <div class="card d-flex flex-column flex-row-auto card-custom card-custom-primary rounded">
 		        <div class="card-header d-block position-relative mh-260">
-		        	<div class="d-flex justify-content-end mt-4">
+		        	<div class="d-flex justify-content-end ">
 		        		<div class="me-3">
 		        			<a href="<?php _ec( get_module_url("popup_rss_settings/".$value->ids) )?>" class="text-gray-100 opacity-75-hover actionItem" data-popup="SettingsRssModal">
 		        				<i class="fad fa-cog"></i> <?php _e("Settings")?>
@@ -42,8 +51,8 @@
 	                        </div>
 	                    </div>
 		        	</div>
-		        	<div class="my-3 mt-5">
-		        		<h3 class="text-gray-100 text-over"><i class="fad fa-rss-square"></i> <?php _e($value->name)?></h3>
+		        	<div class="my-3 ">
+		        		<h3 style="font-size: 1.35rem" class="text-gray-100 text-over"><i class="fad fa-rss-square"></i> <?php _e($value->name)?></h3>
 		        		<div class="text-gray-100 text-over"><?php _e($value->description)?></div>
 		        	</div>
 		        	<div class="d-flex position-relative t-30">

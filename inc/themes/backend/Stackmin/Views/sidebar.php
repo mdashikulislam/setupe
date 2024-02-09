@@ -19,12 +19,9 @@ $top_sidebar = $request->top_sidebar;
     </div>
 
     <div class="menu-inner-shadow"></div>
-
-
     <ul class="menu-inner py-1">
         <?php foreach ($top_sidebar as $key => $menus): ?>
             <?php foreach ($menus as $key => $row): ?>
-
                 <?php if (!isset($row['sub_menu'])): ?>
                     <li class="menu-item <?php _e(uri('segment', 1) == $row['id'] ? 'active ' : '') ?>">
                         <a href="<?php _e(base_url($row['id'])) ?>" class="menu-link">
@@ -59,5 +56,23 @@ $top_sidebar = $request->top_sidebar;
                 <?php endif; ?>
             <?php endforeach; ?>
         <?php endforeach ?>
+        <li class="menu-item">
+            <a href="https://ai.setupe.com" class="menu-link">
+                <i class='bx bx-wind'></i>
+                <div class="text-truncate" data-i18n="Ai Tools">Ai Tools</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="https://editor.setupe.com" class="menu-link">
+                <i class='bx bx-edit-alt' ></i>
+                <div class="text-truncate" data-i18n="Editor(PIXAGURU)">Editor(PIXAGURU)</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="https://links.setupe.com/" class="menu-link">
+                <i class='bx bx-link-alt' ></i>
+                <div class="text-truncate" data-i18n="Links">Links</div>
+            </a>
+        </li>
     </ul>
 </aside>

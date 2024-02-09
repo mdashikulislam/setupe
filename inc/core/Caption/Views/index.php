@@ -5,7 +5,10 @@ if ( !$request->isAJAX() ) {
     <?php 
      _e( $this->extend('Backend\Stackmin\Views\index'), false);
     ?>
+    <style>
+      
 
+    </style>
     <?php echo $this->section('content') ?>
     <div class="main-wrapper flex-grow-1 n-scroll">
         <?php echo $content ?>

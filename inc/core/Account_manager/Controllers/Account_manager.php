@@ -11,14 +11,12 @@ class Account_manager extends \CodeIgniter\Controller
     public function index( $page = false ) {
         $permissions = $this->model->block_permissions();
         $block_accounts = $permissions['items'];
-
         $data = [
             "title" => $this->config['name'],
             "desc" => $this->config['desc'],
             "content" => view('Core\Account_manager\Views\content', ['block_accounts' => $block_accounts, "config" => $this->config]),
             "block_accounts" => $block_accounts
         ];
-
         return view('Core\Account_manager\Views\index', $data);
     }
 

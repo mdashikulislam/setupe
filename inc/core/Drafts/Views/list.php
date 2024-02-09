@@ -33,9 +33,9 @@
 <?php else: ?>
 
 <div class="mw-400 container d-flex align-items-center align-self-center h-400 py-5">
-    <div class="text-center">
+    <div class="text-center" style="width: 100%">
         <div class="text-center px-4 mb-4">
-            <img class="mw-100 mh-300px" alt="" src="<?php _e( get_theme_url() ) ?>Assets/img/empty.png">
+            <img class="mw-100 mh-300px" style="width:320px;height: auto" alt="" src="<?php _e( get_theme_url() ) ?>Assets/img/empty.png">
         </div>
         <h3 class="mb-4"><?php _e("There are no drafts")?></h3>
         <div><a href="<?php _ec( base_url("post") )?>" class="btn btn-primary btn-sm"><?php _e("Compose a Post")?></a></div>

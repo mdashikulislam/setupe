@@ -1,4 +1,5 @@
-<?php 
+
+<?php
 $request = \Config\Services::request();
 if ( !$request->isAJAX() ) {
 ?>
@@ -19,3 +20,4 @@ if ( !$request->isAJAX() ) {
     <?php echo $content ?>
 
 <?php } ?>
+

@@ -1,3 +1,20 @@
+<style>
+    .btn-light{
+        background-color: var(--sp-light);
+        border-color: var(--sp-light);
+        box-shadow:none;
+        padding: calc(0.55rem + 1px) calc(1.25rem + 1px);
+    }
+    .btn i{
+        font-size: 1.2rem;
+    }
+    .btn.btn-light:hover{
+        background-color: #eff2f5!important;
+        border-color: #eff2f5!important;
+    }
+
+
+</style>
 <div class="submenu-right fm-submenu d-flex flex-column flex-row-auto p-20 bg-white n-scroll">
     <div class="fm-options">
         <div class="mb-4">
@@ -10,7 +27,7 @@
             </div>
         </div>
         <div class="mb-4">
-            <button class="btn btn-light-primary btn-sm w-100 fm-open-new-folder mb-2">
+            <button class="btn btn-label-primary  w-100 fm-open-new-folder mb-2">
                 <i class="fad fa-plus"></i> <?php _e("New folder")?>
             </button>
             <div class="fm-box-new-folder">
@@ -25,7 +42,7 @@
         <div class="mb-4">
             <h3 class="mb-3 text-gray-800 fs-16"><i class="fad fa-upload text-primary"></i> <?php _e("Upload")?></h3>     
             
-            <div class="fm-box-upload mb-2 rounded p-5 text-center bg-light-dark">
+            <div class="fm-box-upload mb-2 rounded  text-center bg-light-dark">
                 
                 <div class="fm-upload-dd p-10 rounded">
                     
@@ -77,7 +94,7 @@
                 <?php endif ?>
                 <?php if ( get_option("fm_google_onedrive_status", 0) && permission("file_manager_onedrive") ): ?>
                 <div class="col px-1 mb-2">
-                    <button class="btn btn-light btn-sm w-100 onedrive-choose" data-client-id="<?php _ec( get_option("fm_onedrive_api_key", "") )?>"><i class="icon icon-onedrive fs-20 p-r-0"></i></button>
+                    <button class="btn btn-light btn-sm w-100 onedrive-choose" data-client-id="<?php _ec( get_option("fm_onedrive_api_key", "") )?>"><i class="fas fa-clouds "></i></button>
                     <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
                 </div>
                 <?php endif ?>
@@ -102,7 +119,7 @@
         <div class="mb-4">
             <h3 class="mb-3 text-gray-800 fs-16"><i class="fad fa-palette p-r-0 text-success"></i> <?php _e("Image editor")?></h3>
 
-            <a class="btn btn-light w-100 btn-sm ccEverywhere" href="javascript:void(0)"><img src="<?php _ec( get_module_path( __DIR__, "Assets/img/adobe.png") )?>" class="w-17 h-17"> <?php _e("Adobe Express")?></a>
+            <a class="btn btn-light w-100 btn-sm ccEverywhere" href="javascript:void(0)"><img style="margin-right: 10px;" src="<?php _ec( get_module_path( __DIR__, "Assets/img/adobe.png") )?>" class="w-17 h-17"> <?php _e("Adobe Express")?></a>
             <?php echo view_cell('\Core\File_manager\Controllers\File_manager::adobe') ?>
         </div>
         <?php endif?>

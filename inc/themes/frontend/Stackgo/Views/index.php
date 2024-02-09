@@ -107,10 +107,10 @@
                             <?php if (find_modules("payment")): ?>
                             <li class="nl-simple" aria-haspopup="true"><a href="<?php _ec( base_url("pricing") )?>" class="h-link"><?php _e("Pricing")?></a></li>
                             <?php endif ?>
-                            <li class="nl-simple" aria-haspopup="true"><a href="<?php _ec( base_url("faqs") )?>" class="h-link"><?php _e("FAQs")?></a></li>
-                            <?php if (find_modules("blog_manager")): ?>
-                            <li class="nl-simple" aria-haspopup="true"><a href="<?php _ec( base_url("blogs") )?>" class="h-link"><?php _e("Blogs")?></a></li>
-                            <?php endif ?>
+<!--                            <li class="nl-simple" aria-haspopup="true"><a href="--><?php //_ec( base_url("faqs") )?><!--" class="h-link">--><?php //_e("FAQs")?><!--</a></li>-->
+<!--                            --><?php //if (find_modules("blog_manager")): ?>
+<!--                            <li class="nl-simple" aria-haspopup="true"><a href="--><?php //_ec( base_url("blogs") )?><!--" class="h-link">--><?php //_e("Blogs")?><!--</a></li>-->
+<!--                            --><?php //endif ?>
                             <?php if ( get_option("signup_status", 1) ): ?>
                             <li class="nl-simple reg-fst-link mobile-last-link" aria-haspopup="true">
                                 <a href="<?php _ec( base_url("login") )?>" class="h-link"><?php _e("Login")?></a>

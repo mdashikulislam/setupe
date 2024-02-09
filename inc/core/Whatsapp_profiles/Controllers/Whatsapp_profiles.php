@@ -28,6 +28,8 @@ class Whatsapp_profiles extends \CodeIgniter\Controller
 
         if(empty($account)){
             $session = db_get("*", TB_WHATSAPP_SESSIONS,["status" => 0, "team_id" => $team_id]);
+//            print_r($session);
+//            die();
             if(empty($session)){
                 $instance_id = strtoupper(uniqid());
                 db_delete(TB_WHATSAPP_SESSIONS, ["status" => 0, "team_id" => $team_id]);
@@ -63,6 +65,7 @@ class Whatsapp_profiles extends \CodeIgniter\Controller
         $access_token = get_team("ids");
 
         $account = db_get("*", TB_ACCOUNTS, ["social_network" => "whatsapp", "category" => "profile", "token" => $instance_id, "team_id" => $team_id]);
+       
         if($account){
             $session = db_get("*", TB_WHATSAPP_SESSIONS, ["team_id" => $team_id, "status" => 0]);
             if($session){
@@ -108,7 +111,7 @@ class Whatsapp_profiles extends \CodeIgniter\Controller
     public function check_login($instance_id = ""){
         $team_id = get_team("id");
         $whatsapp_session = db_get("*", TB_WHATSAPP_SESSIONS, ["status" => 1, "team_id" => $team_id, "instance_id" => $instance_id]);
-        
+
         if($whatsapp_session){
 
             $profile = false;

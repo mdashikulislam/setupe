@@ -8,7 +8,7 @@ if ( !$request->isAJAX() ) {
 
     <?php echo $this->section('content') ?>
 
-    <form class="main-wrapper flex-grow-1 n-scroll actionForm" action="<?php _e( get_module_url("save") )?>" method="POST">
+    <form class="main-wrapper flex-grow-1 n-scroll actionForm" style="height: 100vh" action="<?php _e( get_module_url("save") )?>" method="POST">
         <?php echo $content ?>
     </form>
 
