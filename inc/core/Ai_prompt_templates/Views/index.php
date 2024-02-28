@@ -1,19 +1,17 @@
-
-
-<?php
+<?php 
 $request = \Config\Services::request();
 if ( !$request->isAJAX() ) {
 ?>
-    <?php
+    <?php 
      _e( $this->extend('Backend\Stackmin\Views\index'), false);
     ?>
 
     <?php echo $this->section('content') ?>
-    <?php _e( $this->include('Core\Schedules\Views\sidebar'), false);?>
+    <?php _e( $this->include('Core\Ai_prompt_templates\Views\sidebar'), false);?>
 
-    <form class="main-wrapper flex-grow-1 n-scroll actionForm <?php _ec( $config['id']."-main" )?>" action="<?php _e( get_module_url("save") )?>" method="POST">
+    <div class="main-wrapper flex-grow-1 n-scroll">
         <?php echo $content ?>
-    </form>
+    </div>
 
     <?php echo $this->endSection() ?>
 

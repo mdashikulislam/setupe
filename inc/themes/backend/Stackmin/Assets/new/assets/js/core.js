@@ -844,7 +844,7 @@ function Core(){
             if( $('.date').val() == "" ){
                 $('.date').datepicker('setDate', 'today');
             }
-
+            console.log('as')
             $('.datetime').datetimepicker({
                 controlType: 'select',
                 oneLine: true,

@@ -1,3 +1,4 @@
+<link href="https://setupe.com/inc/themes/backend/Stackmin/Assets/plugins/datetimepicker/timepicker-addon.min.css" rel="stylesheet" type="text/css" />
 <style>
     .preview-tab .preview-menu li a{
         border-color: transparent;
@@ -16,7 +17,7 @@
 	<div class="row">
 
 		<div class="col-md-12 mb-4">
-			
+
 			<div class="row post-type">
 				<label class="col-4 bg-primary text-light-primary" for="type_media">
 					<div class="d-block d-md-flex d-sm-flex text-center align-items-center flex-row-fluid flex-wrap">
@@ -41,7 +42,7 @@
 				</label>
 			</div>
 		</div>
-		
+
 		<div class="post-tab filemanager-tab col-lg-4 col-md-6 col-sm-12 d-lg-block d-md-block d-sm-none d-xs-none d-none">
 			<?php echo view_cell('\Core\File_manager\Controllers\File_manager::widget') ?>
 		</div>
@@ -57,7 +58,7 @@
 					<div class="mb-3">
 						<?php echo view_cell('\Core\Account_manager\Controllers\Account_manager::widget', ["account_id" => get_data($post, 'account_id')]) ?>
 					</div>
-					
+
 					<div class="post-type-box d-none" data-type="link">
 						<div class="input-group input-group-solid bg-white border mb-3">
 			                <input type="text" class="form-control" name="link" placeholder="Enter link">
@@ -73,7 +74,7 @@
 
 					<?php if(!empty($frame_posts)){?>
 
-					<?php 
+					<?php
 					$advance_options = false;
 					foreach ($frame_posts as $key => $value){
 						if ( isset( $value['data']['advance_options'] ) ){
@@ -97,9 +98,9 @@
 						                	<i class="<?php _ec( $value['icon'] )?> p-r-0" style="color: <?php _ec( $value['color'] )?>;"></i>
 						                </a>
 						            </li>
-						        	<?php 
-						        	$advance_option_menu++; 
-						        	endif 
+						        	<?php
+						        	$advance_option_menu++;
+						        	endif
 						        	?>
 					        	<?php endforeach ?>
 					        </ul>
@@ -111,9 +112,9 @@
 					            <div class="tab-pane fade show <?php _ec( $advance_option_tab==0?"active":"" )?>" id="advance_option_<?php _ec( $value['parent']['id'] )?>"  data-network="<?php _ec( $value['parent']['id'] )?>" role="tabpanel">
 							        <?php _ec( $value['data']['advance_options'] )?>
 							    </div>
-							    <?php 
+							    <?php
 							    $advance_option_tab++;
-							    endif 
+							    endif
 							    ?>
 				        	<?php endforeach ?>
 						</div>
@@ -126,33 +127,37 @@
 						<div class="card border">
 							<?php if( empty($post) ){?>
 							<div class="card-header p-r-20 p-l-20 py-2 border-bottom-0">
-								<h3 class="card-title fs-14"><?php _e("When to post")?></h3>
-						        <div class="card-toolbar">
-						            <select class="form-select mw-150 fs-12" name="post_by">
-						            	<option value="1"><?php _e("Immediately")?></option>
-						            	<option value="2"><?php _e("Schedule & Repost")?></option>
-						            	<option value="3"><?php _e("Specific Days & Times")?></option>
-						            	<?php if (permission("drafts")): ?>
-						            	<option value="4"><?php _e("Draft")?></option>
-						            	<?php endif ?>
-						            </select>
-						        </div>
+								<div style="display: flex;justify-content: space-between;align-items: center">
+                                    <h3 style="margin: 0;" class="card-title fs-14"><?php _e("When to post")?></h3>
+                                    <div class="card-toolbar">
+                                        <select class="form-select mw-150 fs-12" name="post_by">
+                                            <option value="1"><?php _e("Immediately")?></option>
+                                            <option value="2"><?php _e("Schedule & Repost")?></option>
+                                            <option value="3"><?php _e("Specific Days & Times")?></option>
+                                            <?php if (permission("drafts")): ?>
+                                                <option value="4"><?php _e("Draft")?></option>
+                                            <?php endif ?>
+                                        </select>
+                                    </div>
+                                </div>
 							</div>
 							<?php }else{?>
 
 								<?php if ($post->status==0): ?>
 									<div class="card-header p-r-20 p-l-20 py-2">
-										<h3 class="card-title fs-14"><?php _e("When to post")?></h3>
-								        <div class="card-toolbar">
-								            <select class="form-select mw-150 fs-12" name="post_by">
-								            	<option value="1"><?php _e("Immediately")?></option>
-								            	<option value="2"><?php _e("Schedule & Repost")?></option>
-								            	<option value="3"><?php _e("Specific Days & Times")?></option>
-								            	<?php if (permission("drafts")): ?>
-								            	<option value="4" <?php _e($post->status==0)?"selected":""?> ><?php _e("Draft")?></option>
-								            	<?php endif ?>
-								            </select>
-								        </div>
+										<div style="display: flex;justify-content: space-between;align-items: center">
+                                            <h3 style="margin: 0;" class="card-title fs-14"><?php _e("When to post")?></h3>
+                                            <div class="card-toolbar">
+                                                <select class="form-select mw-150 fs-12" name="post_by">
+                                                    <option value="1"><?php _e("Immediately")?></option>
+                                                    <option value="2"><?php _e("Schedule & Repost")?></option>
+                                                    <option value="3"><?php _e("Specific Days & Times")?></option>
+                                                    <?php if (permission("drafts")): ?>
+                                                        <option value="4" <?php _e($post->status==0)?"selected":""?> ><?php _e("Draft")?></option>
+                                                    <?php endif ?>
+                                                </select>
+                                            </div>
+                                        </div>
 									</div>
 									<div class="d-none">
 										<input type="text" name="ids" value="<?php _ec( $post->ids )?>">
@@ -164,7 +169,7 @@
 										<input type="text" name="ids" value="<?php _ec( $post->ids )?>">
 									</div>
 								<?php endif ?>
-								
+
 							<?php }?>
 							<div class="post-by d-none" data-by="2">
 								<div class="card-body <?php _ec( empty($post)?"border-top":"" )?> p-20">
@@ -224,7 +229,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 
 					</div>
@@ -232,7 +237,7 @@
 				</div>
 				<div class="card-footer p-15">
 					<div class="d-flex justify-content-end">
-						<?php 
+						<?php
 						if( empty($post) ){
 							$button = 1;
 						}else{
@@ -276,7 +281,7 @@
 		<div class="post-tab preview-tab col-md-4 d-lg-block d-md-none d-sm-none d-xs-none d-none">
 			<?php if(!empty($frame_posts)){?>
 
-			<?php 
+			<?php
 			$preview = false;
 			$preview_count = 0;
 			foreach ($frame_posts as $key => $value){
@@ -306,9 +311,9 @@
 					                	<i class="<?php _ec( $value['icon'] )?> p-r-0 fs-20" style="color: <?php _ec( $value['color'] )?>;"></i>
 					                </a>
 					            </li>
-					            <?php 
+					            <?php
 							    $preview_count++;
-							    endif 
+							    endif
 							    ?>
 				        	<?php endforeach ?>
 				        </ul>
@@ -346,3 +351,4 @@
 	});
 </script>
 <?php }?>
+<script src="https://setupe.com/inc/themes/backend/Stackmin/Assets/plugins/datetimepicker/timepicker-addon.min.js"></script>

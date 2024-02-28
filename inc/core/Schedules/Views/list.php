@@ -163,3 +163,60 @@
 
 	<?php endif ?>
 </div>
+<link href="<?=base_url()?>/inc/themes/backend/Stackmin/Assets/plugins/monthly/monthly.css" rel="stylesheet" type="text/css" />
+<script src="<?=base_url()?>/inc/themes/backend/Stackmin/Assets/plugins/monthly/monthly.js"></script>
+<link href="<?=base_url()?>/inc/themes/backend/Stackmin/Assets/plugins/owlcarousel/owl.carousel.css" rel="stylesheet" type="text/css" />
+<link href="<?=base_url()?>/inc/themes/backend/Stackmin/Assets/plugins/owlcarousel/owl.theme.default.css" rel="stylesheet" type="text/css" />
+<script src="<?=base_url()?>/inc/themes/backend/Stackmin/Assets/plugins/owlcarousel/owl.carousel.min.js"></script>
+<style>
+    .monthly-day-title-wrap div{
+        color: #696cff;
+    }
+    .monthly-header-title-date, .monthly-header-title-date:hover{
+        background: #696cff!important;
+    }
+    .monthly-header-title .monthly-reset:hover{
+        background: #696cff!important;
+    }
+    .monthly-header .monthly-next:after{
+        border-color: #696cff!important;
+    }
+    .monthly-header .monthly-prev:after{
+        border-color: #696cff!important;
+    }
+    .schedules-detail .card .card-footer{
+        color: #696cff!important;
+        border-color: rgba(0,0,0,0)!important;
+        background: #e7e7ff!important;
+    }
+    .monthly-week .monthly-day-number{
+        background: transparent;
+    }
+    .border-success{
+        border-color: #696cff!important;
+    }
+    .schedules-detail .card-footer a:hover{
+        color: #696cff!important;
+    }
+    .schedules-detail .card-footer a i:hover{
+        color: #696cff!important;
+    }
+    .schedules-detail .card-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .schedules-detail .card-toolbar a.btn-light-primary{
+        color: #696cff;
+        border-color: rgba(0,0,0,0);
+        background: #e7e7ff;
+    }
+    .schedules-detail .card-toolbar a.btn-light-danger{
+        color: #ff3e1d;
+        border-color: rgba(0,0,0,0);
+        background: #ffe0db;
+    }
+    .monthly-today .monthly-day-number{
+        background: #696cff!important;
+    }
+</style>

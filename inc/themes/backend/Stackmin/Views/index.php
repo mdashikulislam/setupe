@@ -376,6 +376,7 @@
 <script src="assets/plugins/minicolors/jquery.minicolors.min.js?t=<?= time() ?>"></script>
 <!-- endbuild -->
 <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?php _ec( get_theme_url() ) ?>Assets/plugins/datetimepicker/timepicker-addon.min.js"></script>
 <script src="assets/plugins/daterangepicker/daterangepicker.js?t=<?= time() ?>"></script>
 <!-- Vendors JS -->
 <script src="assets/vendor/libs/apex-charts/apexcharts.js?t=<?= time() ?>"></script>
